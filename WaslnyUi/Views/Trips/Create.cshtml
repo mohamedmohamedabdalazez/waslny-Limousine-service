@@ -1,0 +1,179 @@
+﻿
+@model WaslnyLib.Entity.Trip
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        margin-top: 10px;
+    }
+</style>
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../Front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trip<i class="ion-ios-arrow-forward"></i></a></span> <span>Create <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Trip</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="request-details">
+    <div class="container">
+        <nav class="pt-4" aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-edit">
+                <li class="breadcrumb-item"></li>
+            </ol>
+        </nav>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Booking DateTime</p>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TripBookingDT, "{0:yyyy-MM-ddTHH:mm}", new { @class = "form-control", @type = "datetime-local", @id = "bookingDateTime" })
+                        @Html.ValidationMessageFor(model => model.TripBookingDT, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <button type="button" class="btn btn-primary" onclick="setCurrentDateTime()">Book Now</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Predicted Travel DateTime</p>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TripPredictedTravelDT, "{0:yyyy-MM-ddTHH:mm}", new { @class = "form-control", @type = "datetime-local", @id = "tripPredictedTravelDT", @onchange = "validatePredictedTravelDateTime()" })
+                        @Html.ValidationMessageFor(model => model.TripPredictedTravelDT, "", new { @class = "text-danger" })
+                        <div id="validationMessage" class="text-danger" style="margin-top: 10px;"></div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Passengers</p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TripPassengers, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TripPassengers, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Trip Status</p>
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.TripStatus, new List<SelectListItem>
+                           {
+                               new SelectListItem { Text = "UpComing", Value = "UpComing" },
+                               new SelectListItem { Text = "Pending", Value = "Pending" },
+                               new SelectListItem { Text = "Completed", Value = "Completed" }
+                           }, "Select Trip Status", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TripStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Driver Phone</p>
+                    <div class="col-md-10">
+                        @Html.DropDownList("DriverID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DriverID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Car Plate Number</p>
+                    <div class="col-md-10">
+                        @Html.DropDownList("CarID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CarID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Route To</p>
+                    <div class="col-md-10">
+                        @Html.DropDownList("RouteID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RouteID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Customer Phone</p>
+                    <div class="col-md-10">
+                        @Html.DropDownList("CustomerID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function setCurrentDateTime() {
+        // Get the current date and time
+        const now = new Date();
+
+        // Format the date and time to yyyy-MM-ddTHH:mm
+        const formattedDateTime = now.toISOString().slice(0, 16);
+
+        // Set the value of the bookingDateTime input field
+        document.getElementById('bookingDateTime').value = formattedDateTime;
+    }
+
+    function validatePredictedTravelDateTime() {
+        // Get the current date and time
+        const now = new Date();
+
+        // Add 1 hour to the current date and time
+        const oneHourLater = new Date(now.getTime() + 60 * 60 * 1000);
+
+        // Get the value of the tripPredictedTravelDT input field
+        const tripPredictedTravelDT = document.getElementById('tripPredictedTravelDT').value;
+
+        // Convert the input value to a Date object
+        const predictedTravelDateTime = new Date(tripPredictedTravelDT);
+
+        // Reference to the validation message element
+        const validationMessageElement = document.getElementById('validationMessage');
+
+        // Check if the selected date is less than one hour from now
+        if (predictedTravelDateTime < oneHourLater) {
+            // Set the validation message text and style
+            validationMessageElement.innerText = "Predicted Travel DateTime must be at least 1 hour from now.";
+            validationMessageElement.style.color = "red";
+
+            // Optionally, you can clear the input or set it to a valid value
+            document.getElementById('tripPredictedTravelDT').value = "";
+        } else {
+            // Clear the validation message if the date is valid
+            validationMessageElement.innerText = "";
+        }
+    }
+</script>

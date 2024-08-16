@@ -1,0 +1,318 @@
+﻿@model WaslnyLib.Entity.Car
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+}
+<style>
+    .form-control {
+        text-align: center;
+        margin-left: 5px;
+    }
+</style>
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../Front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Car<i class="ion-ios-arrow-forward"></i></a></span> <span>Create <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Car</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="request-details">
+    <div class="container">
+        <nav class="pt-4" aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-edit">
+                <li class="breadcrumb-item"></li>
+            </ol>
+        </nav>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Color</p>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CarColor, new List<SelectListItem>
+                  {
+                      new SelectListItem { Text = "Red", Value = "Red" },
+                      new SelectListItem { Text = "Blue", Value = "Blue" },
+                      new SelectListItem { Text = "Green", Value = "Green" },
+                      new SelectListItem { Text = "Yellow", Value = "Yellow" },
+                      new SelectListItem { Text = "Black", Value = "Black" },
+                      new SelectListItem { Text = "White", Value = "White" },
+                      new SelectListItem { Text = "Gray", Value = "Gray" },
+                      new SelectListItem { Text = "Silver", Value = "Silver" },
+                      new SelectListItem { Text = "Orange", Value = "Orange" },
+                      new SelectListItem { Text = "Purple", Value = "Purple" },
+                      new SelectListItem { Text = "Brown", Value = "Brown" },
+                      new SelectListItem { Text = "Pink", Value = "Pink" },
+                      new SelectListItem { Text = "Cyan", Value = "Cyan" },
+                      new SelectListItem { Text = "Magenta", Value = "Magenta" },
+                      new SelectListItem { Text = "Beige", Value = "Beige" },
+                      new SelectListItem { Text = "Turquoise", Value = "Turquoise" },
+                      new SelectListItem { Text = "Violet", Value = "Violet" },
+                      new SelectListItem { Text = "Lavender", Value = "Lavender" },
+                      new SelectListItem { Text = "Indigo", Value = "Indigo" },
+                      new SelectListItem { Text = "Teal", Value = "Teal" }
+                  }, "Select Car Color", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CarColor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Brand</p>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CarBrand, new List<SelectListItem>
+                  {
+
+                     new SelectListItem { Text = "Toyota", Value = "Toyota" },
+                     new SelectListItem { Text = "Honda", Value = "Honda" },
+                     new SelectListItem { Text = "Ford", Value = "Ford" },
+                     new SelectListItem { Text = "Chevrolet", Value = "Chevrolet" },
+                     new SelectListItem { Text = "Mercedes-Benz", Value = "Mercedes-Benz" },
+                     new SelectListItem { Text = "BMW", Value = "BMW" },
+                        new SelectListItem { Text = "Audi", Value = "Audi" },
+                        new SelectListItem { Text = "Nissan", Value = "Nissan" },
+                         new SelectListItem { Text = "Volkswagen", Value = "Volkswagen" },
+                        new SelectListItem { Text = "Hyundai", Value = "Hyundai" },
+                      new SelectListItem { Text = "Lexus", Value = "Lexus" },
+             new SelectListItem { Text = "Kia", Value = "Kia" },
+             new SelectListItem { Text = "Subaru", Value = "Subaru" },
+             new SelectListItem { Text = "Mazda", Value = "Mazda" },
+                   new SelectListItem { Text = "Dodge", Value = "Dodge" },
+              new SelectListItem { Text = "Jeep", Value = "Jeep" },
+                     new SelectListItem { Text = "Porsche", Value = "Porsche" },
+                         new SelectListItem { Text = "Jaguar", Value = "Jaguar" },
+                new SelectListItem { Text = "Ferrari", Value = "Ferrari" },
+                    new SelectListItem { Text = "Lamborghini", Value = "Lamborghini" }
+
+                  }, "Select Car Brand", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CarCapacity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Model</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarModel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Version</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarVersion, new { htmlAttributes = new { @class = "form-control", id = "carVersion" } })
+                @Html.ValidationMessageFor(model => model.CarVersion, "", new { @class = "text-danger", id = "carVersionError" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Type</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Capacity</p>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CarCapacity, new List<SelectListItem>
+                  {
+                      new SelectListItem { Text = "4", Value = "4" },
+                      new SelectListItem { Text = "7", Value = "7" },
+                  }, "Select Car Capacity", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CarCapacity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Plate Number</p>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" id="letter1" class="form-control" maxlength="1" placeholder="" oninput="combinePlateNumber()" />
+                        <span class="text-danger" id="letter1-error"></span>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="letter2" class="form-control" maxlength="1" placeholder="" oninput="combinePlateNumber()" />
+                        <span class="text-danger" id="letter2-error"></span>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="letter3" class="form-control" maxlength="1" placeholder="" oninput="combinePlateNumber()" />
+                        <span class="text-danger" id="letter3-error"></span>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="numbers" class="form-control" maxlength="4" placeholder="1234" oninput="combinePlateNumber()" />
+                        <span class="text-danger" id="numbers-error"></span>
+                    </div>
+                </div>
+                <input type="hidden" id="CarPN" name="CarPN" />
+                <span class="text-danger">@Html.ValidationMessageFor(model => model.CarPN)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">License End Date</p>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CarLED, new { @class = "form-control", @type = "date", @min = currentDate })
+                @Html.ValidationMessageFor(model => model.CarLED, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Is Rented</p>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CarRented, new List<SelectListItem>
+                   {
+                       new SelectListItem { Text = "No", Value = "False" },
+                       new SelectListItem { Text = "Yes", Value = "True" }
+                   }, "Select Car Classification", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CarRented, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Kilometer Dashboard</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CarKMDashboard, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarKMDashboard, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Photo</p>
+            <div class="col-md-10">
+                <input type="file" accept=".jpg,.jpeg,.png" class="form-control" id="photoInput" />
+                <input type="hidden" id="CarPhoto" name="CarPhoto" />
+                @Html.ValidationMessageFor(model => model.CarPhoto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var dateInput = document.querySelector('input[type="date"]');
+        var today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        dateInput.addEventListener('change', function () {
+            if (new Date(this.value) < new Date(today)) {
+                this.setCustomValidity('The date cannot be in the past.');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var photoInput = document.getElementById('photoInput');
+        var driverPhotoHidden = document.getElementById('CarPhoto');
+
+        photoInput.addEventListener('change', function () {
+            var file = this.files[0];
+            if (file) {
+                var filePath = URL.createObjectURL(file); 
+                driverPhotoHidden.value = file.name;
+            }
+        });
+    });
+
+    function combinePlateNumber() {
+        var letter1 = document.getElementById("letter1").value;
+        var letter2 = document.getElementById("letter2").value;
+        var letter3 = document.getElementById("letter3").value;
+        var numbers = document.getElementById("numbers").value;
+
+        document.getElementById("CarPN").value = letter3 + " " + letter2 + " " + letter1 + " " + numbers;
+    }
+
+    function validateLetter(element, errorElementId) {
+        // Regular expression for Arabic letters
+        var arabicLetterRegex = /^[\u0600-\u06FF\u0750-\u077F]$/;
+
+        if (!arabicLetterRegex.test(element.value) && element.value.length === 1) {
+            document.getElementById(errorElementId).innerText = "Must be a single Arabic letter.";
+        } else {
+            document.getElementById(errorElementId).innerText = "";
+        }
+    }
+
+    document.getElementById("letter1").addEventListener("input", function () {
+        validateLetter(this, "letter1-error");
+    });
+
+    document.getElementById("letter2").addEventListener("input", function () {
+        validateLetter(this, "letter2-error");
+    });
+
+    document.getElementById("letter3").addEventListener("input", function () {
+        validateLetter(this, "letter3-error");
+    });
+
+    document.getElementById("numbers").addEventListener("input", function () {
+        if (!/^[0-9]{3,4}$/.test(this.value) && (this.value.length === 3 || this.value.length === 4)) {
+            document.getElementById("numbers-error").innerText = "Must be 3 or 4 numbers.";
+        } else {
+            document.getElementById("numbers-error").innerText = "";
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var carVersionInput = document.getElementById('carVersion');
+        var errorElement = document.getElementById('carVersionError');
+        var form = carVersionInput.closest('form');
+
+        function validateDate() {
+            var selectedDate = new Date(carVersionInput.value);
+            var now = new Date();
+            var nextYear = new Date();
+            nextYear.setFullYear(now.getFullYear() + 1);
+            var minDate = new Date('2000-01-01');
+
+            if (selectedDate < minDate || selectedDate > nextYear) {
+                errorElement.innerText = 'Please select a version from the year 2000 up to next year.';
+                return false;
+            } else {
+                errorElement.innerText = '';
+                return true;
+            }
+        }
+
+        carVersionInput.addEventListener('change', validateDate);
+
+        form.addEventListener('submit', function (event) {
+            if (!validateDate()) {
+                event.preventDefault(); 
+            }
+        });
+    });
+</script>

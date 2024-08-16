@@ -1,0 +1,93 @@
+﻿@model WaslnyLib.Entity.CarClassification
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-control {
+        text-align: center;
+        margin-left: 5px;
+    }
+</style>
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../Front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Car Classification <i class="ion-ios-arrow-forward"></i></a></span> <span>Edit <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Car Classifiaction</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="request-details">
+    <div class="container">
+        <nav class="pt-4" aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-edit">
+                <li class="breadcrumb-item"></li>
+            </ol>
+        </nav>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.CarClassificationID)
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Car ID</p>
+                    <div class="col-md-10">
+                        @Html.DropDownList("CarID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CarID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Car Classification Quality</p>
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.CarClassificationQuality, new List<SelectListItem>
+                         {
+                             new SelectListItem { Text = "Economy", Value = "False" },
+                             new SelectListItem { Text = "Luxury", Value = "True" }
+                         }, "Select Car Classification", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CarClassificationQuality, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Car Classification Type</p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CarClassificationType, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CarClassificationType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p style="margin-left: 15px;">Is Deleted</p>
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsDeleted)
+                            @Html.ValidationMessageFor(model => model.IsDeleted, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>

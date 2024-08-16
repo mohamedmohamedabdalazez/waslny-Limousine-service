@@ -1,0 +1,239 @@
+﻿@model WaslnyLib.Entity.Driver
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+    var eighteenYearsAgo = DateTime.Now.AddYears(-18).ToString("yyyy-MM-dd");
+}
+
+<style>
+    .form-control {
+        text-align: center;
+        margin-left: 5px;
+    }
+</style>
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../Front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Driver<i class="ion-ios-arrow-forward"></i></a></span> <span>Edit <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Driver</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="request-details">
+    <div class="container">
+        <nav class="pt-4" aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-edit">
+                <li class="breadcrumb-item"></li>
+            </ol>
+        </nav>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DriverID)
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">First Name</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DriverFName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DriverFName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Last Name</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DriverLName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DriverLName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Phone</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DriverPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DriverPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">SSN</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DriverSSN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DriverSSN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Salary</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DriverSalary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DriverSalary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Date of Birth</p>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DriverDOB, new { @class = "form-control", @type = "date", @max = eighteenYearsAgo })
+                @Html.ValidationMessageFor(model => model.DriverDOB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Address</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DriverAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DriverAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Photo</p>
+            <div class="col-md-10">
+                <input type="file" accept=".jpg,.jpeg,.png" class="form-control" id="photoInput" />
+                <input type="hidden" id="DriverPhoto" name="DriverPhoto" />
+                @Html.ValidationMessageFor(model => model.DriverPhoto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            <p style="margin-left: 15px;">City</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DriverCity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DriverCity, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            <p style="margin-left: 15px;">City</p>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DriverCity, new List<SelectListItem>
+                  {
+                      new SelectListItem { Text = "Cairo", Value = "Cairo" },
+                      new SelectListItem { Text = "Alexandria", Value = "Alexandria" },
+                      new SelectListItem { Text = "Giza", Value = "Giza" },
+                      new SelectListItem { Text = "Port Said", Value = "Port Said" },
+                      new SelectListItem { Text = "Suez", Value = "Suez" },
+                      new SelectListItem { Text = "Mansoura", Value = "Mansoura" },
+                      new SelectListItem { Text = "Tanta", Value = "Tanta" },
+                      new SelectListItem { Text = "Asyut", Value = "Asyut" },
+                      new SelectListItem { Text = "Ismailia", Value = "Ismailia" },
+                      new SelectListItem { Text = "Beni Suef", Value = "Beni Suef" },
+                      new SelectListItem { Text = "Faiyum", Value = "Faiyum" },
+                      new SelectListItem { Text = "Minya", Value = "Minya" },
+                      new SelectListItem { Text = "Damanhur", Value = "Damanhur" },
+                      new SelectListItem { Text = "Zagazig", Value = "Zagazig" },
+                      new SelectListItem { Text = "Qena", Value = "Qena" },
+                      new SelectListItem { Text = "Sohag", Value = "Sohag" },
+                      new SelectListItem { Text = "Luxor", Value = "Luxor" },
+                      new SelectListItem { Text = "Aswan", Value = "Aswan" },
+                      new SelectListItem { Text = "El-Mahalla El-Kubra", Value = "El-Mahalla El-Kubra" }
+                  }, "Select City", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DriverCity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">License End Date</p>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DriverLED, new { @class = "form-control", @type = "date", @min = currentDate })
+                @Html.ValidationMessageFor(model => model.DriverLED, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Last Trip DateTime</p>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.DriverLastTripDT, "{0:yyyy-MM-ddTHH:mm}", new { @class = "form-control", @type = "datetime-local" })
+                @Html.ValidationMessageFor(model => model.DriverLastTripDT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Is Deleted</p>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsDeleted)
+                    @Html.ValidationMessageFor(model => model.IsDeleted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var today = new Date().toISOString().split('T')[0];
+        var eighteenYearsAgo = new Date();
+        eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
+        eighteenYearsAgo = eighteenYearsAgo.toISOString().split('T')[0];
+
+        var dobInput = document.querySelector('input[name="DateOfBirth"]');
+        var ledInput = document.querySelector('input[name="CarLED"]');
+
+        // Set the max attribute for Date of Birth input
+        dobInput.setAttribute('max', eighteenYearsAgo);
+        dobInput.addEventListener('change', function () {
+            var selectedDate = new Date(this.value);
+            var eighteenYearsAgoDate = new Date(eighteenYearsAgo);
+            if (selectedDate > eighteenYearsAgoDate) {
+                this.setCustomValidity('The date of birth must be at least 18 years ago.');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        // Set the min attribute for License End Date input
+        ledInput.setAttribute('min', today);
+        ledInput.addEventListener('change', function () {
+            if (new Date(this.value) < new Date(today)) {
+                this.setCustomValidity('The license end date cannot be in the past.');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var photoInput = document.getElementById('photoInput');
+        var driverPhotoHidden = document.getElementById('DriverPhoto');
+
+        photoInput.addEventListener('change', function () {
+            var file = this.files[0];
+            if (file) {
+                var filePath = URL.createObjectURL(file); 
+                driverPhotoHidden.value = file.name; 
+            }
+        });
+    });
+</script>

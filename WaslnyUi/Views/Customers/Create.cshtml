@@ -1,0 +1,179 @@
+﻿@model WaslnyLib.Entity.Customer
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var sixteenYearsAgo = DateTime.Now.AddYears(-16).ToString("yyyy-MM-dd");
+}
+
+<style>
+    .form-control {
+        text-align: center;
+        margin-left: 5px;
+    }
+</style>
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../Front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Customer<i class="ion-ios-arrow-forward"></i></a></span> <span>Create <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Customer</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="request-details">
+    <div class="container">
+        <nav class="pt-4" aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-edit">
+                <li class="breadcrumb-item"></li>
+            </ol>
+        </nav>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p style="margin-left: 15px;">First Name</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerFName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerFName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Last Name</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerLName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerLName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Gender</p>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CustomerGender, new List<SelectListItem>
+                   {
+                       new SelectListItem { Text = "Female", Value = "False" },
+                       new SelectListItem { Text = "Male", Value = "True" }
+                   }, "Select Customer Gender", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CustomerGender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Address</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            <p style="margin-left: 15px;">Phone</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Phone</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control", @type = "text", @maxlength = "11", @pattern = "01\\d{9}" } })
+                @Html.ValidationMessageFor(model => model.CustomerPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">City</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerCity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerCity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            <p style="margin-left: 15px;">Email</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Email</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerEmail, new { htmlAttributes = new { @class = "form-control", @type = "email", @pattern = "[^@\\s]+@[^@\\s]+\\.[^@\\s]+" } })
+                @Html.ValidationMessageFor(model => model.CustomerEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <p style="margin-left: 15px;">Date Of Birth</p>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CustomerDOB, new { @class = "form-control", @type = "date", @max = sixteenYearsAgo })
+                @Html.ValidationMessageFor(model => model.CustomerDOB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+            <p style="margin-left: 15px;">Is Deleted</p>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsDeleted)
+                    @Html.ValidationMessageFor(model => model.IsDeleted, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var today = new Date().toISOString().split('T')[0];
+        var sixteenYearsAgo = new Date();
+        sixteenYearsAgo.setFullYear(sixteenYearsAgo.getFullYear() - 16);
+        sixteenYearsAgo = sixteenYearsAgo.toISOString().split('T')[0];
+
+        var dobInput = document.querySelector('input[name="CustomerDOB"]');
+
+        // Set the max attribute for Date of Birth input
+        dobInput.setAttribute('max', sixteenYearsAgo);
+        dobInput.addEventListener('change', function () {
+            var selectedDate = new Date(this.value);
+            var sixteenYearsAgoDate = new Date(sixteenYearsAgo);
+            if (selectedDate > sixteenYearsAgoDate) {
+                this.setCustomValidity('The date of birth must be at least 16 years ago.');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    });
+
+</script>

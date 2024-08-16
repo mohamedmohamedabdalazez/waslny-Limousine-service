@@ -1,0 +1,135 @@
+﻿@model WaslnyLib.Entity.Driver
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../Front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Driver<i class="ion-ios-arrow-forward"></i></a></span> <span>Details <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Driver</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="request-details">
+    <div class="container">
+        <nav class="pt-4" aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-edit">
+                <li class="breadcrumb-item"></li>
+            </ol>
+        </nav>
+
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    <p>First Name</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverFName)
+                </dd>
+
+                <dt>
+                    <p>Last Name</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverLName)
+                </dd>
+
+                <dt>
+                    <p>Phone</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverPhone)
+                </dd>
+
+                <dt>
+                    <p>SSN</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverSSN)
+                </dd>
+
+                <dt>
+                    <p>Salary</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverSalary)
+                </dd>
+
+                <dt>
+                    <p>Date Of Birth</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverDOB)
+                </dd>
+
+                <dt>
+                    <p>Address</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverAddress)
+                </dd>
+
+                <dt>
+                    <p>Photo</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverPhoto)
+                </dd>
+
+                <dt>
+                    <p>City</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverCity)
+                </dd>
+
+                <dt>
+                    <p>License End Date</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverLED)
+                </dd>
+
+                <dt>
+                    <p>Last Trip DateTime</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DriverLastTripDT)
+                </dd>
+
+                <dt>
+                    <p>Is Deleted</p>
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsDeleted)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.DriverID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7977d283da6f4910b7b501679147f974" Name="Diagram1">
+        <EntityTypeShape EntityType="WaslnyModel.Action" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.ActionType" Width="1.5" PointX="7.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.AuditTrial" Width="1.5" PointX="10" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.Car" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.CarClassification" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.CarMaintenance" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.Customer" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.Driver" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.MasterEntity" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.Price" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.Route" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WaslnyModel.Trip" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="WaslnyModel.FK_AuditTrial_Action" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_AuditTrial_ActionType" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_AuditTrial_MasterEntity" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_CarClassification_Car" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_CarMaintenance_Car" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_Trip_Car" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_Price_CarClassification" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_Trip_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_Trip_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_Price_Route" ManuallyRouted="false" />
+        <AssociationConnector Association="WaslnyModel.FK_Trip_Route" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WaslnyModel.AuditDetailsView" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="WaslnyModel.CarsEvaluation" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="WaslnyModel.DriversEvaluation" Width="1.5" PointX="10.75" PointY="5.75" />
+        <EntityTypeShape EntityType="WaslnyModel.TripDetail" Width="1.5" PointX="10.75" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

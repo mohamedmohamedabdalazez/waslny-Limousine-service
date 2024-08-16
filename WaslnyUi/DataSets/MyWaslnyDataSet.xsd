@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MyWaslnyDataSet" targetNamespace="http://tempuri.org/MyWaslnyDataSet.xsd" xmlns:mstns="http://tempuri.org/MyWaslnyDataSet.xsd" xmlns="http://tempuri.org/MyWaslnyDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="MembershipDbContext" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MembershipDbContext (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.MembershipDbContext.ConnectionString" Provider="Microsoft.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AuditDetailsViewTableAdapter" GeneratorDataComponentClassName="AuditDetailsViewTableAdapter" Name="AuditDetailsView" UserDataComponentName="AuditDetailsViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MembershipDbContext (Web.config)" DbObjectName="Waslny.dbo.AuditDetailsView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT AuditTrialID, EntityID, EntityName, ActionTypeID, ActionTypeName, ActionID, ActionName, UserID, UserName, IPAddress, TransactionTime, EntityRecord FROM dbo.AuditDetailsView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AuditTrialID" DataSetColumn="AuditTrialID" />
+              <Mapping SourceColumn="EntityID" DataSetColumn="EntityID" />
+              <Mapping SourceColumn="EntityName" DataSetColumn="EntityName" />
+              <Mapping SourceColumn="ActionTypeID" DataSetColumn="ActionTypeID" />
+              <Mapping SourceColumn="ActionTypeName" DataSetColumn="ActionTypeName" />
+              <Mapping SourceColumn="ActionID" DataSetColumn="ActionID" />
+              <Mapping SourceColumn="ActionName" DataSetColumn="ActionName" />
+              <Mapping SourceColumn="UserID" DataSetColumn="UserID" />
+              <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
+              <Mapping SourceColumn="IPAddress" DataSetColumn="IPAddress" />
+              <Mapping SourceColumn="TransactionTime" DataSetColumn="TransactionTime" />
+              <Mapping SourceColumn="EntityRecord" DataSetColumn="EntityRecord" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CarsEvaluationTableAdapter" GeneratorDataComponentClassName="CarsEvaluationTableAdapter" Name="CarsEvaluation" UserDataComponentName="CarsEvaluationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MembershipDbContext (Web.config)" DbObjectName="Waslny.dbo.CarsEvaluation" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT CarBrand, CarModel, CarVersion, CarPN, CarClassificationQuality, CarClassificationType, RouteTo, TripPredictedTravelDT, TripCarRating, TripComments, CarType, CarCapacity, CarColor, CarID, CarLED, CarRented, CarKMDashboard, CarPhoto, CarIsAvailable, IsDeleted, CarClassificationID, Expr1, Expr2, RouteID, TripID, TripBookingDT, TripRealTravelDT, TripArrivalDT, TripStartKM, TripEndKM, TripPassengers, TripStatus, TripDriverRating, Expr3 FROM dbo.CarsEvaluation</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CarBrand" DataSetColumn="CarBrand" />
+              <Mapping SourceColumn="CarModel" DataSetColumn="CarModel" />
+              <Mapping SourceColumn="CarVersion" DataSetColumn="CarVersion" />
+              <Mapping SourceColumn="CarPN" DataSetColumn="CarPN" />
+              <Mapping SourceColumn="CarClassificationQuality" DataSetColumn="CarClassificationQuality" />
+              <Mapping SourceColumn="CarClassificationType" DataSetColumn="CarClassificationType" />
+              <Mapping SourceColumn="RouteTo" DataSetColumn="RouteTo" />
+              <Mapping SourceColumn="TripPredictedTravelDT" DataSetColumn="TripPredictedTravelDT" />
+              <Mapping SourceColumn="TripCarRating" DataSetColumn="TripCarRating" />
+              <Mapping SourceColumn="TripComments" DataSetColumn="TripComments" />
+              <Mapping SourceColumn="CarType" DataSetColumn="CarType" />
+              <Mapping SourceColumn="CarCapacity" DataSetColumn="CarCapacity" />
+              <Mapping SourceColumn="CarColor" DataSetColumn="CarColor" />
+              <Mapping SourceColumn="CarID" DataSetColumn="CarID" />
+              <Mapping SourceColumn="CarLED" DataSetColumn="CarLED" />
+              <Mapping SourceColumn="CarRented" DataSetColumn="CarRented" />
+              <Mapping SourceColumn="CarKMDashboard" DataSetColumn="CarKMDashboard" />
+              <Mapping SourceColumn="CarPhoto" DataSetColumn="CarPhoto" />
+              <Mapping SourceColumn="CarIsAvailable" DataSetColumn="CarIsAvailable" />
+              <Mapping SourceColumn="IsDeleted" DataSetColumn="IsDeleted" />
+              <Mapping SourceColumn="CarClassificationID" DataSetColumn="CarClassificationID" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="RouteID" DataSetColumn="RouteID" />
+              <Mapping SourceColumn="TripID" DataSetColumn="TripID" />
+              <Mapping SourceColumn="TripBookingDT" DataSetColumn="TripBookingDT" />
+              <Mapping SourceColumn="TripRealTravelDT" DataSetColumn="TripRealTravelDT" />
+              <Mapping SourceColumn="TripArrivalDT" DataSetColumn="TripArrivalDT" />
+              <Mapping SourceColumn="TripStartKM" DataSetColumn="TripStartKM" />
+              <Mapping SourceColumn="TripEndKM" DataSetColumn="TripEndKM" />
+              <Mapping SourceColumn="TripPassengers" DataSetColumn="TripPassengers" />
+              <Mapping SourceColumn="TripStatus" DataSetColumn="TripStatus" />
+              <Mapping SourceColumn="TripDriverRating" DataSetColumn="TripDriverRating" />
+              <Mapping SourceColumn="Expr3" DataSetColumn="Expr3" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DriversEvaluationTableAdapter" GeneratorDataComponentClassName="DriversEvaluationTableAdapter" Name="DriversEvaluation" UserDataComponentName="DriversEvaluationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MembershipDbContext (Web.config)" DbObjectName="Waslny.dbo.DriversEvaluation" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DriverFName, DriverLName, DriverPhone, DriverLED, RouteTo, TripPredictedTravelDT, TripDriverRating, TripComments, DriverSSN, DriverSalary, DriverDOB, DriverAddress, DriverPhoto, DriverCity, DriverLastTripDT, IsDeleted, Expr1, RouteID, DriverID, TripID, TripBookingDT, TripRealTravelDT, TripArrivalDT, TripStartKM, TripEndKM, TripPassengers, TripStatus, TripCarRating, Expr2 FROM dbo.DriversEvaluation</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DriverFName" DataSetColumn="DriverFName" />
+              <Mapping SourceColumn="DriverLName" DataSetColumn="DriverLName" />
+              <Mapping SourceColumn="DriverPhone" DataSetColumn="DriverPhone" />
+              <Mapping SourceColumn="DriverLED" DataSetColumn="DriverLED" />
+              <Mapping SourceColumn="RouteTo" DataSetColumn="RouteTo" />
+              <Mapping SourceColumn="TripPredictedTravelDT" DataSetColumn="TripPredictedTravelDT" />
+              <Mapping SourceColumn="TripDriverRating" DataSetColumn="TripDriverRating" />
+              <Mapping SourceColumn="TripComments" DataSetColumn="TripComments" />
+              <Mapping SourceColumn="DriverSSN" DataSetColumn="DriverSSN" />
+              <Mapping SourceColumn="DriverSalary" DataSetColumn="DriverSalary" />
+              <Mapping SourceColumn="DriverDOB" DataSetColumn="DriverDOB" />
+              <Mapping SourceColumn="DriverAddress" DataSetColumn="DriverAddress" />
+              <Mapping SourceColumn="DriverPhoto" DataSetColumn="DriverPhoto" />
+              <Mapping SourceColumn="DriverCity" DataSetColumn="DriverCity" />
+              <Mapping SourceColumn="DriverLastTripDT" DataSetColumn="DriverLastTripDT" />
+              <Mapping SourceColumn="IsDeleted" DataSetColumn="IsDeleted" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="RouteID" DataSetColumn="RouteID" />
+              <Mapping SourceColumn="DriverID" DataSetColumn="DriverID" />
+              <Mapping SourceColumn="TripID" DataSetColumn="TripID" />
+              <Mapping SourceColumn="TripBookingDT" DataSetColumn="TripBookingDT" />
+              <Mapping SourceColumn="TripRealTravelDT" DataSetColumn="TripRealTravelDT" />
+              <Mapping SourceColumn="TripArrivalDT" DataSetColumn="TripArrivalDT" />
+              <Mapping SourceColumn="TripStartKM" DataSetColumn="TripStartKM" />
+              <Mapping SourceColumn="TripEndKM" DataSetColumn="TripEndKM" />
+              <Mapping SourceColumn="TripPassengers" DataSetColumn="TripPassengers" />
+              <Mapping SourceColumn="TripStatus" DataSetColumn="TripStatus" />
+              <Mapping SourceColumn="TripCarRating" DataSetColumn="TripCarRating" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TripDetailsTableAdapter" GeneratorDataComponentClassName="TripDetailsTableAdapter" Name="TripDetails" UserDataComponentName="TripDetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MembershipDbContext (Web.config)" DbObjectName="Waslny.dbo.TripDetails" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT TripPredictedTravelDT, TripStartKM, TripEndKM, TripBookingDT, TripStatus, TripRealTravelDT, TripArrivalDT, RouteTo, PriceMoney, CarClassificationQuality, CarClassificationType, TripPassengers, IsDeleted, TripComments, TripCarRating, TripDriverRating, TripID, CarClassificationID, Expr1, Expr2, RouteID, PriceID, Expr3 FROM dbo.TripDetails</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TripPredictedTravelDT" DataSetColumn="TripPredictedTravelDT" />
+              <Mapping SourceColumn="TripStartKM" DataSetColumn="TripStartKM" />
+              <Mapping SourceColumn="TripEndKM" DataSetColumn="TripEndKM" />
+              <Mapping SourceColumn="TripBookingDT" DataSetColumn="TripBookingDT" />
+              <Mapping SourceColumn="TripStatus" DataSetColumn="TripStatus" />
+              <Mapping SourceColumn="TripRealTravelDT" DataSetColumn="TripRealTravelDT" />
+              <Mapping SourceColumn="TripArrivalDT" DataSetColumn="TripArrivalDT" />
+              <Mapping SourceColumn="RouteTo" DataSetColumn="RouteTo" />
+              <Mapping SourceColumn="PriceMoney" DataSetColumn="PriceMoney" />
+              <Mapping SourceColumn="CarClassificationQuality" DataSetColumn="CarClassificationQuality" />
+              <Mapping SourceColumn="CarClassificationType" DataSetColumn="CarClassificationType" />
+              <Mapping SourceColumn="TripPassengers" DataSetColumn="TripPassengers" />
+              <Mapping SourceColumn="IsDeleted" DataSetColumn="IsDeleted" />
+              <Mapping SourceColumn="TripComments" DataSetColumn="TripComments" />
+              <Mapping SourceColumn="TripCarRating" DataSetColumn="TripCarRating" />
+              <Mapping SourceColumn="TripDriverRating" DataSetColumn="TripDriverRating" />
+              <Mapping SourceColumn="TripID" DataSetColumn="TripID" />
+              <Mapping SourceColumn="CarClassificationID" DataSetColumn="CarClassificationID" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="RouteID" DataSetColumn="RouteID" />
+              <Mapping SourceColumn="PriceID" DataSetColumn="PriceID" />
+              <Mapping SourceColumn="Expr3" DataSetColumn="Expr3" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MyWaslnyDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="MyWaslnyDataSet" msprop:Generator_DataSetName="MyWaslnyDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AuditDetailsView" msprop:Generator_RowEvHandlerName="AuditDetailsViewRowChangeEventHandler" msprop:Generator_RowDeletedName="AuditDetailsViewRowDeleted" msprop:Generator_RowDeletingName="AuditDetailsViewRowDeleting" msprop:Generator_RowEvArgName="AuditDetailsViewRowChangeEvent" msprop:Generator_TablePropName="AuditDetailsView" msprop:Generator_RowChangedName="AuditDetailsViewRowChanged" msprop:Generator_RowChangingName="AuditDetailsViewRowChanging" msprop:Generator_TableClassName="AuditDetailsViewDataTable" msprop:Generator_RowClassName="AuditDetailsViewRow" msprop:Generator_TableVarName="tableAuditDetailsView" msprop:Generator_UserTableName="AuditDetailsView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AuditTrialID" msprop:Generator_ColumnPropNameInRow="AuditTrialID" msprop:Generator_ColumnPropNameInTable="AuditTrialIDColumn" msprop:Generator_ColumnVarNameInTable="columnAuditTrialID" msprop:Generator_UserColumnName="AuditTrialID" type="xs:int" />
+              <xs:element name="EntityID" msprop:Generator_ColumnPropNameInRow="EntityID" msprop:Generator_ColumnPropNameInTable="EntityIDColumn" msprop:Generator_ColumnVarNameInTable="columnEntityID" msprop:Generator_UserColumnName="EntityID" type="xs:int" />
+              <xs:element name="EntityName" msprop:Generator_ColumnPropNameInRow="EntityName" msprop:Generator_ColumnPropNameInTable="EntityNameColumn" msprop:Generator_ColumnVarNameInTable="columnEntityName" msprop:Generator_UserColumnName="EntityName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ActionTypeID" msprop:Generator_ColumnPropNameInRow="ActionTypeID" msprop:Generator_ColumnPropNameInTable="ActionTypeIDColumn" msprop:Generator_ColumnVarNameInTable="columnActionTypeID" msprop:Generator_UserColumnName="ActionTypeID" type="xs:int" />
+              <xs:element name="ActionTypeName" msprop:Generator_ColumnPropNameInRow="ActionTypeName" msprop:Generator_ColumnPropNameInTable="ActionTypeNameColumn" msprop:Generator_ColumnVarNameInTable="columnActionTypeName" msprop:Generator_UserColumnName="ActionTypeName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ActionID" msprop:Generator_ColumnPropNameInRow="ActionID" msprop:Generator_ColumnPropNameInTable="ActionIDColumn" msprop:Generator_ColumnVarNameInTable="columnActionID" msprop:Generator_UserColumnName="ActionID" type="xs:int" />
+              <xs:element name="ActionName" msprop:Generator_ColumnPropNameInRow="ActionName" msprop:Generator_ColumnPropNameInTable="ActionNameColumn" msprop:Generator_ColumnVarNameInTable="columnActionName" msprop:Generator_UserColumnName="ActionName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UserID" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" msprop:Generator_ColumnVarNameInTable="columnUserID" msprop:Generator_UserColumnName="UserID" type="xs:int" />
+              <xs:element name="UserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_UserColumnName="UserName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IPAddress" msprop:Generator_ColumnPropNameInRow="IPAddress" msprop:Generator_ColumnPropNameInTable="IPAddressColumn" msprop:Generator_ColumnVarNameInTable="columnIPAddress" msprop:Generator_UserColumnName="IPAddress">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TransactionTime" msprop:Generator_ColumnPropNameInRow="TransactionTime" msprop:Generator_ColumnPropNameInTable="TransactionTimeColumn" msprop:Generator_ColumnVarNameInTable="columnTransactionTime" msprop:Generator_UserColumnName="TransactionTime" type="xs:dateTime" />
+              <xs:element name="EntityRecord" msprop:Generator_ColumnPropNameInRow="EntityRecord" msprop:Generator_ColumnPropNameInTable="EntityRecordColumn" msprop:Generator_ColumnVarNameInTable="columnEntityRecord" msprop:Generator_UserColumnName="EntityRecord">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CarsEvaluation" msprop:Generator_RowEvHandlerName="CarsEvaluationRowChangeEventHandler" msprop:Generator_RowDeletedName="CarsEvaluationRowDeleted" msprop:Generator_RowDeletingName="CarsEvaluationRowDeleting" msprop:Generator_RowEvArgName="CarsEvaluationRowChangeEvent" msprop:Generator_TablePropName="CarsEvaluation" msprop:Generator_RowChangedName="CarsEvaluationRowChanged" msprop:Generator_RowChangingName="CarsEvaluationRowChanging" msprop:Generator_TableClassName="CarsEvaluationDataTable" msprop:Generator_RowClassName="CarsEvaluationRow" msprop:Generator_TableVarName="tableCarsEvaluation" msprop:Generator_UserTableName="CarsEvaluation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CarBrand" msprop:Generator_ColumnPropNameInRow="CarBrand" msprop:Generator_ColumnPropNameInTable="CarBrandColumn" msprop:Generator_ColumnVarNameInTable="columnCarBrand" msprop:Generator_UserColumnName="CarBrand">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarModel" msprop:Generator_ColumnPropNameInRow="CarModel" msprop:Generator_ColumnPropNameInTable="CarModelColumn" msprop:Generator_ColumnVarNameInTable="columnCarModel" msprop:Generator_UserColumnName="CarModel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarVersion" msprop:Generator_ColumnPropNameInRow="CarVersion" msprop:Generator_ColumnPropNameInTable="CarVersionColumn" msprop:Generator_ColumnVarNameInTable="columnCarVersion" msprop:Generator_UserColumnName="CarVersion" type="xs:int" />
+              <xs:element name="CarPN" msprop:Generator_ColumnPropNameInRow="CarPN" msprop:Generator_ColumnPropNameInTable="CarPNColumn" msprop:Generator_ColumnVarNameInTable="columnCarPN" msprop:Generator_UserColumnName="CarPN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarClassificationQuality" msprop:Generator_ColumnPropNameInRow="CarClassificationQuality" msprop:Generator_ColumnPropNameInTable="CarClassificationQualityColumn" msprop:Generator_ColumnVarNameInTable="columnCarClassificationQuality" msprop:Generator_UserColumnName="CarClassificationQuality" type="xs:boolean" />
+              <xs:element name="CarClassificationType" msprop:Generator_ColumnPropNameInRow="CarClassificationType" msprop:Generator_ColumnPropNameInTable="CarClassificationTypeColumn" msprop:Generator_ColumnVarNameInTable="columnCarClassificationType" msprop:Generator_UserColumnName="CarClassificationType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RouteTo" msprop:Generator_ColumnPropNameInRow="RouteTo" msprop:Generator_ColumnPropNameInTable="RouteToColumn" msprop:Generator_ColumnVarNameInTable="columnRouteTo" msprop:Generator_UserColumnName="RouteTo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TripPredictedTravelDT" msprop:Generator_ColumnPropNameInRow="TripPredictedTravelDT" msprop:Generator_ColumnPropNameInTable="TripPredictedTravelDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripPredictedTravelDT" msprop:Generator_UserColumnName="TripPredictedTravelDT" type="xs:dateTime" />
+              <xs:element name="TripCarRating" msprop:Generator_ColumnPropNameInRow="TripCarRating" msprop:Generator_ColumnPropNameInTable="TripCarRatingColumn" msprop:Generator_ColumnVarNameInTable="columnTripCarRating" msprop:Generator_UserColumnName="TripCarRating" type="xs:int" minOccurs="0" />
+              <xs:element name="TripComments" msprop:Generator_ColumnPropNameInRow="TripComments" msprop:Generator_ColumnPropNameInTable="TripCommentsColumn" msprop:Generator_ColumnVarNameInTable="columnTripComments" msprop:Generator_UserColumnName="TripComments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarType" msprop:Generator_ColumnPropNameInRow="CarType" msprop:Generator_ColumnPropNameInTable="CarTypeColumn" msprop:Generator_ColumnVarNameInTable="columnCarType" msprop:Generator_UserColumnName="CarType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarCapacity" msprop:Generator_ColumnPropNameInRow="CarCapacity" msprop:Generator_ColumnPropNameInTable="CarCapacityColumn" msprop:Generator_ColumnVarNameInTable="columnCarCapacity" msprop:Generator_UserColumnName="CarCapacity" type="xs:int" />
+              <xs:element name="CarColor" msprop:Generator_ColumnPropNameInRow="CarColor" msprop:Generator_ColumnPropNameInTable="CarColorColumn" msprop:Generator_ColumnVarNameInTable="columnCarColor" msprop:Generator_UserColumnName="CarColor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarID" msprop:Generator_ColumnPropNameInRow="CarID" msprop:Generator_ColumnPropNameInTable="CarIDColumn" msprop:Generator_ColumnVarNameInTable="columnCarID" msprop:Generator_UserColumnName="CarID" type="xs:int" />
+              <xs:element name="CarLED" msprop:Generator_ColumnPropNameInRow="CarLED" msprop:Generator_ColumnPropNameInTable="CarLEDColumn" msprop:Generator_ColumnVarNameInTable="columnCarLED" msprop:Generator_UserColumnName="CarLED" type="xs:dateTime" />
+              <xs:element name="CarRented" msprop:Generator_ColumnPropNameInRow="CarRented" msprop:Generator_ColumnPropNameInTable="CarRentedColumn" msprop:Generator_ColumnVarNameInTable="columnCarRented" msprop:Generator_UserColumnName="CarRented" type="xs:boolean" />
+              <xs:element name="CarKMDashboard" msprop:Generator_ColumnPropNameInRow="CarKMDashboard" msprop:Generator_ColumnPropNameInTable="CarKMDashboardColumn" msprop:Generator_ColumnVarNameInTable="columnCarKMDashboard" msprop:Generator_UserColumnName="CarKMDashboard" type="xs:int" />
+              <xs:element name="CarPhoto" msprop:Generator_ColumnPropNameInRow="CarPhoto" msprop:Generator_ColumnPropNameInTable="CarPhotoColumn" msprop:Generator_ColumnVarNameInTable="columnCarPhoto" msprop:Generator_UserColumnName="CarPhoto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarIsAvailable" msprop:Generator_ColumnPropNameInRow="CarIsAvailable" msprop:Generator_ColumnPropNameInTable="CarIsAvailableColumn" msprop:Generator_ColumnVarNameInTable="columnCarIsAvailable" msprop:Generator_UserColumnName="CarIsAvailable" type="xs:boolean" />
+              <xs:element name="IsDeleted" msprop:Generator_ColumnPropNameInRow="IsDeleted" msprop:Generator_ColumnPropNameInTable="IsDeletedColumn" msprop:Generator_ColumnVarNameInTable="columnIsDeleted" msprop:Generator_UserColumnName="IsDeleted" type="xs:boolean" />
+              <xs:element name="CarClassificationID" msprop:Generator_ColumnPropNameInRow="CarClassificationID" msprop:Generator_ColumnPropNameInTable="CarClassificationIDColumn" msprop:Generator_ColumnVarNameInTable="columnCarClassificationID" msprop:Generator_UserColumnName="CarClassificationID" type="xs:int" />
+              <xs:element name="Expr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_UserColumnName="Expr1" type="xs:boolean" />
+              <xs:element name="Expr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_UserColumnName="Expr2" type="xs:boolean" />
+              <xs:element name="RouteID" msprop:Generator_ColumnPropNameInRow="RouteID" msprop:Generator_ColumnPropNameInTable="RouteIDColumn" msprop:Generator_ColumnVarNameInTable="columnRouteID" msprop:Generator_UserColumnName="RouteID" type="xs:int" />
+              <xs:element name="TripID" msprop:Generator_ColumnPropNameInRow="TripID" msprop:Generator_ColumnPropNameInTable="TripIDColumn" msprop:Generator_ColumnVarNameInTable="columnTripID" msprop:Generator_UserColumnName="TripID" type="xs:int" />
+              <xs:element name="TripBookingDT" msprop:Generator_ColumnPropNameInRow="TripBookingDT" msprop:Generator_ColumnPropNameInTable="TripBookingDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripBookingDT" msprop:Generator_UserColumnName="TripBookingDT" type="xs:dateTime" />
+              <xs:element name="TripRealTravelDT" msprop:Generator_ColumnPropNameInRow="TripRealTravelDT" msprop:Generator_ColumnPropNameInTable="TripRealTravelDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripRealTravelDT" msprop:Generator_UserColumnName="TripRealTravelDT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TripArrivalDT" msprop:Generator_ColumnPropNameInRow="TripArrivalDT" msprop:Generator_ColumnPropNameInTable="TripArrivalDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripArrivalDT" msprop:Generator_UserColumnName="TripArrivalDT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TripStartKM" msprop:Generator_ColumnPropNameInRow="TripStartKM" msprop:Generator_ColumnPropNameInTable="TripStartKMColumn" msprop:Generator_ColumnVarNameInTable="columnTripStartKM" msprop:Generator_UserColumnName="TripStartKM" type="xs:int" minOccurs="0" />
+              <xs:element name="TripEndKM" msprop:Generator_ColumnPropNameInRow="TripEndKM" msprop:Generator_ColumnPropNameInTable="TripEndKMColumn" msprop:Generator_ColumnVarNameInTable="columnTripEndKM" msprop:Generator_UserColumnName="TripEndKM" type="xs:int" minOccurs="0" />
+              <xs:element name="TripPassengers" msprop:Generator_ColumnPropNameInRow="TripPassengers" msprop:Generator_ColumnPropNameInTable="TripPassengersColumn" msprop:Generator_ColumnVarNameInTable="columnTripPassengers" msprop:Generator_UserColumnName="TripPassengers" type="xs:int" />
+              <xs:element name="TripStatus" msprop:Generator_ColumnPropNameInRow="TripStatus" msprop:Generator_ColumnPropNameInTable="TripStatusColumn" msprop:Generator_ColumnVarNameInTable="columnTripStatus" msprop:Generator_UserColumnName="TripStatus">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TripDriverRating" msprop:Generator_ColumnPropNameInRow="TripDriverRating" msprop:Generator_ColumnPropNameInTable="TripDriverRatingColumn" msprop:Generator_ColumnVarNameInTable="columnTripDriverRating" msprop:Generator_UserColumnName="TripDriverRating" type="xs:int" minOccurs="0" />
+              <xs:element name="Expr3" msprop:Generator_ColumnPropNameInRow="Expr3" msprop:Generator_ColumnPropNameInTable="Expr3Column" msprop:Generator_ColumnVarNameInTable="columnExpr3" msprop:Generator_UserColumnName="Expr3" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DriversEvaluation" msprop:Generator_RowEvHandlerName="DriversEvaluationRowChangeEventHandler" msprop:Generator_RowDeletedName="DriversEvaluationRowDeleted" msprop:Generator_RowDeletingName="DriversEvaluationRowDeleting" msprop:Generator_RowEvArgName="DriversEvaluationRowChangeEvent" msprop:Generator_TablePropName="DriversEvaluation" msprop:Generator_RowChangedName="DriversEvaluationRowChanged" msprop:Generator_RowChangingName="DriversEvaluationRowChanging" msprop:Generator_TableClassName="DriversEvaluationDataTable" msprop:Generator_RowClassName="DriversEvaluationRow" msprop:Generator_TableVarName="tableDriversEvaluation" msprop:Generator_UserTableName="DriversEvaluation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DriverFName" msprop:Generator_ColumnPropNameInRow="DriverFName" msprop:Generator_ColumnPropNameInTable="DriverFNameColumn" msprop:Generator_ColumnVarNameInTable="columnDriverFName" msprop:Generator_UserColumnName="DriverFName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverLName" msprop:Generator_ColumnPropNameInRow="DriverLName" msprop:Generator_ColumnPropNameInTable="DriverLNameColumn" msprop:Generator_ColumnVarNameInTable="columnDriverLName" msprop:Generator_UserColumnName="DriverLName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverPhone" msprop:Generator_ColumnPropNameInRow="DriverPhone" msprop:Generator_ColumnPropNameInTable="DriverPhoneColumn" msprop:Generator_ColumnVarNameInTable="columnDriverPhone" msprop:Generator_UserColumnName="DriverPhone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverLED" msprop:Generator_ColumnPropNameInRow="DriverLED" msprop:Generator_ColumnPropNameInTable="DriverLEDColumn" msprop:Generator_ColumnVarNameInTable="columnDriverLED" msprop:Generator_UserColumnName="DriverLED" type="xs:dateTime" />
+              <xs:element name="RouteTo" msprop:Generator_ColumnPropNameInRow="RouteTo" msprop:Generator_ColumnPropNameInTable="RouteToColumn" msprop:Generator_ColumnVarNameInTable="columnRouteTo" msprop:Generator_UserColumnName="RouteTo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TripPredictedTravelDT" msprop:Generator_ColumnPropNameInRow="TripPredictedTravelDT" msprop:Generator_ColumnPropNameInTable="TripPredictedTravelDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripPredictedTravelDT" msprop:Generator_UserColumnName="TripPredictedTravelDT" type="xs:dateTime" />
+              <xs:element name="TripDriverRating" msprop:Generator_ColumnPropNameInRow="TripDriverRating" msprop:Generator_ColumnPropNameInTable="TripDriverRatingColumn" msprop:Generator_ColumnVarNameInTable="columnTripDriverRating" msprop:Generator_UserColumnName="TripDriverRating" type="xs:int" minOccurs="0" />
+              <xs:element name="TripComments" msprop:Generator_ColumnPropNameInRow="TripComments" msprop:Generator_ColumnPropNameInTable="TripCommentsColumn" msprop:Generator_ColumnVarNameInTable="columnTripComments" msprop:Generator_UserColumnName="TripComments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverSSN" msprop:Generator_ColumnPropNameInRow="DriverSSN" msprop:Generator_ColumnPropNameInTable="DriverSSNColumn" msprop:Generator_ColumnVarNameInTable="columnDriverSSN" msprop:Generator_UserColumnName="DriverSSN" type="xs:long" />
+              <xs:element name="DriverSalary" msprop:Generator_ColumnPropNameInRow="DriverSalary" msprop:Generator_ColumnPropNameInTable="DriverSalaryColumn" msprop:Generator_ColumnVarNameInTable="columnDriverSalary" msprop:Generator_UserColumnName="DriverSalary" type="xs:float" />
+              <xs:element name="DriverDOB" msprop:Generator_ColumnPropNameInRow="DriverDOB" msprop:Generator_ColumnPropNameInTable="DriverDOBColumn" msprop:Generator_ColumnVarNameInTable="columnDriverDOB" msprop:Generator_UserColumnName="DriverDOB" type="xs:dateTime" />
+              <xs:element name="DriverAddress" msprop:Generator_ColumnPropNameInRow="DriverAddress" msprop:Generator_ColumnPropNameInTable="DriverAddressColumn" msprop:Generator_ColumnVarNameInTable="columnDriverAddress" msprop:Generator_UserColumnName="DriverAddress">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverPhoto" msprop:Generator_ColumnPropNameInRow="DriverPhoto" msprop:Generator_ColumnPropNameInTable="DriverPhotoColumn" msprop:Generator_ColumnVarNameInTable="columnDriverPhoto" msprop:Generator_UserColumnName="DriverPhoto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverCity" msprop:Generator_ColumnPropNameInRow="DriverCity" msprop:Generator_ColumnPropNameInTable="DriverCityColumn" msprop:Generator_ColumnVarNameInTable="columnDriverCity" msprop:Generator_UserColumnName="DriverCity">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverLastTripDT" msprop:Generator_ColumnPropNameInRow="DriverLastTripDT" msprop:Generator_ColumnPropNameInTable="DriverLastTripDTColumn" msprop:Generator_ColumnVarNameInTable="columnDriverLastTripDT" msprop:Generator_UserColumnName="DriverLastTripDT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IsDeleted" msprop:Generator_ColumnPropNameInRow="IsDeleted" msprop:Generator_ColumnPropNameInTable="IsDeletedColumn" msprop:Generator_ColumnVarNameInTable="columnIsDeleted" msprop:Generator_UserColumnName="IsDeleted" type="xs:boolean" />
+              <xs:element name="Expr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_UserColumnName="Expr1" type="xs:boolean" />
+              <xs:element name="RouteID" msprop:Generator_ColumnPropNameInRow="RouteID" msprop:Generator_ColumnPropNameInTable="RouteIDColumn" msprop:Generator_ColumnVarNameInTable="columnRouteID" msprop:Generator_UserColumnName="RouteID" type="xs:int" />
+              <xs:element name="DriverID" msprop:Generator_ColumnPropNameInRow="DriverID" msprop:Generator_ColumnPropNameInTable="DriverIDColumn" msprop:Generator_ColumnVarNameInTable="columnDriverID" msprop:Generator_UserColumnName="DriverID" type="xs:int" />
+              <xs:element name="TripID" msprop:Generator_ColumnPropNameInRow="TripID" msprop:Generator_ColumnPropNameInTable="TripIDColumn" msprop:Generator_ColumnVarNameInTable="columnTripID" msprop:Generator_UserColumnName="TripID" type="xs:int" />
+              <xs:element name="TripBookingDT" msprop:Generator_ColumnPropNameInRow="TripBookingDT" msprop:Generator_ColumnPropNameInTable="TripBookingDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripBookingDT" msprop:Generator_UserColumnName="TripBookingDT" type="xs:dateTime" />
+              <xs:element name="TripRealTravelDT" msprop:Generator_ColumnPropNameInRow="TripRealTravelDT" msprop:Generator_ColumnPropNameInTable="TripRealTravelDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripRealTravelDT" msprop:Generator_UserColumnName="TripRealTravelDT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TripArrivalDT" msprop:Generator_ColumnPropNameInRow="TripArrivalDT" msprop:Generator_ColumnPropNameInTable="TripArrivalDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripArrivalDT" msprop:Generator_UserColumnName="TripArrivalDT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TripStartKM" msprop:Generator_ColumnPropNameInRow="TripStartKM" msprop:Generator_ColumnPropNameInTable="TripStartKMColumn" msprop:Generator_ColumnVarNameInTable="columnTripStartKM" msprop:Generator_UserColumnName="TripStartKM" type="xs:int" minOccurs="0" />
+              <xs:element name="TripEndKM" msprop:Generator_ColumnPropNameInRow="TripEndKM" msprop:Generator_ColumnPropNameInTable="TripEndKMColumn" msprop:Generator_ColumnVarNameInTable="columnTripEndKM" msprop:Generator_UserColumnName="TripEndKM" type="xs:int" minOccurs="0" />
+              <xs:element name="TripPassengers" msprop:Generator_ColumnPropNameInRow="TripPassengers" msprop:Generator_ColumnPropNameInTable="TripPassengersColumn" msprop:Generator_ColumnVarNameInTable="columnTripPassengers" msprop:Generator_UserColumnName="TripPassengers" type="xs:int" />
+              <xs:element name="TripStatus" msprop:Generator_ColumnPropNameInRow="TripStatus" msprop:Generator_ColumnPropNameInTable="TripStatusColumn" msprop:Generator_ColumnVarNameInTable="columnTripStatus" msprop:Generator_UserColumnName="TripStatus">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TripCarRating" msprop:Generator_ColumnPropNameInRow="TripCarRating" msprop:Generator_ColumnPropNameInTable="TripCarRatingColumn" msprop:Generator_ColumnVarNameInTable="columnTripCarRating" msprop:Generator_UserColumnName="TripCarRating" type="xs:int" minOccurs="0" />
+              <xs:element name="Expr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_UserColumnName="Expr2" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TripDetails" msprop:Generator_RowEvHandlerName="TripDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="TripDetailsRowDeleted" msprop:Generator_RowDeletingName="TripDetailsRowDeleting" msprop:Generator_RowEvArgName="TripDetailsRowChangeEvent" msprop:Generator_TablePropName="TripDetails" msprop:Generator_RowChangedName="TripDetailsRowChanged" msprop:Generator_RowChangingName="TripDetailsRowChanging" msprop:Generator_TableClassName="TripDetailsDataTable" msprop:Generator_RowClassName="TripDetailsRow" msprop:Generator_TableVarName="tableTripDetails" msprop:Generator_UserTableName="TripDetails">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TripPredictedTravelDT" msprop:Generator_ColumnPropNameInRow="TripPredictedTravelDT" msprop:Generator_ColumnPropNameInTable="TripPredictedTravelDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripPredictedTravelDT" msprop:Generator_UserColumnName="TripPredictedTravelDT" type="xs:dateTime" />
+              <xs:element name="TripStartKM" msprop:Generator_ColumnPropNameInRow="TripStartKM" msprop:Generator_ColumnPropNameInTable="TripStartKMColumn" msprop:Generator_ColumnVarNameInTable="columnTripStartKM" msprop:Generator_UserColumnName="TripStartKM" type="xs:int" minOccurs="0" />
+              <xs:element name="TripEndKM" msprop:Generator_ColumnPropNameInRow="TripEndKM" msprop:Generator_ColumnPropNameInTable="TripEndKMColumn" msprop:Generator_ColumnVarNameInTable="columnTripEndKM" msprop:Generator_UserColumnName="TripEndKM" type="xs:int" minOccurs="0" />
+              <xs:element name="TripBookingDT" msprop:Generator_ColumnPropNameInRow="TripBookingDT" msprop:Generator_ColumnPropNameInTable="TripBookingDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripBookingDT" msprop:Generator_UserColumnName="TripBookingDT" type="xs:dateTime" />
+              <xs:element name="TripStatus" msprop:Generator_ColumnPropNameInRow="TripStatus" msprop:Generator_ColumnPropNameInTable="TripStatusColumn" msprop:Generator_ColumnVarNameInTable="columnTripStatus" msprop:Generator_UserColumnName="TripStatus">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TripRealTravelDT" msprop:Generator_ColumnPropNameInRow="TripRealTravelDT" msprop:Generator_ColumnPropNameInTable="TripRealTravelDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripRealTravelDT" msprop:Generator_UserColumnName="TripRealTravelDT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TripArrivalDT" msprop:Generator_ColumnPropNameInRow="TripArrivalDT" msprop:Generator_ColumnPropNameInTable="TripArrivalDTColumn" msprop:Generator_ColumnVarNameInTable="columnTripArrivalDT" msprop:Generator_UserColumnName="TripArrivalDT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RouteTo" msprop:Generator_ColumnPropNameInRow="RouteTo" msprop:Generator_ColumnPropNameInTable="RouteToColumn" msprop:Generator_ColumnVarNameInTable="columnRouteTo" msprop:Generator_UserColumnName="RouteTo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PriceMoney" msprop:Generator_ColumnPropNameInRow="PriceMoney" msprop:Generator_ColumnPropNameInTable="PriceMoneyColumn" msprop:Generator_ColumnVarNameInTable="columnPriceMoney" msprop:Generator_UserColumnName="PriceMoney" type="xs:float" />
+              <xs:element name="CarClassificationQuality" msprop:Generator_ColumnPropNameInRow="CarClassificationQuality" msprop:Generator_ColumnPropNameInTable="CarClassificationQualityColumn" msprop:Generator_ColumnVarNameInTable="columnCarClassificationQuality" msprop:Generator_UserColumnName="CarClassificationQuality" type="xs:boolean" />
+              <xs:element name="CarClassificationType" msprop:Generator_ColumnPropNameInRow="CarClassificationType" msprop:Generator_ColumnPropNameInTable="CarClassificationTypeColumn" msprop:Generator_ColumnVarNameInTable="columnCarClassificationType" msprop:Generator_UserColumnName="CarClassificationType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TripPassengers" msprop:Generator_ColumnPropNameInRow="TripPassengers" msprop:Generator_ColumnPropNameInTable="TripPassengersColumn" msprop:Generator_ColumnVarNameInTable="columnTripPassengers" msprop:Generator_UserColumnName="TripPassengers" type="xs:int" />
+              <xs:element name="IsDeleted" msprop:Generator_ColumnPropNameInRow="IsDeleted" msprop:Generator_ColumnPropNameInTable="IsDeletedColumn" msprop:Generator_ColumnVarNameInTable="columnIsDeleted" msprop:Generator_UserColumnName="IsDeleted" type="xs:boolean" />
+              <xs:element name="TripComments" msprop:Generator_ColumnPropNameInRow="TripComments" msprop:Generator_ColumnPropNameInTable="TripCommentsColumn" msprop:Generator_ColumnVarNameInTable="columnTripComments" msprop:Generator_UserColumnName="TripComments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TripCarRating" msprop:Generator_ColumnPropNameInRow="TripCarRating" msprop:Generator_ColumnPropNameInTable="TripCarRatingColumn" msprop:Generator_ColumnVarNameInTable="columnTripCarRating" msprop:Generator_UserColumnName="TripCarRating" type="xs:int" minOccurs="0" />
+              <xs:element name="TripDriverRating" msprop:Generator_ColumnPropNameInRow="TripDriverRating" msprop:Generator_ColumnPropNameInTable="TripDriverRatingColumn" msprop:Generator_ColumnVarNameInTable="columnTripDriverRating" msprop:Generator_UserColumnName="TripDriverRating" type="xs:int" minOccurs="0" />
+              <xs:element name="TripID" msprop:Generator_ColumnPropNameInRow="TripID" msprop:Generator_ColumnPropNameInTable="TripIDColumn" msprop:Generator_ColumnVarNameInTable="columnTripID" msprop:Generator_UserColumnName="TripID" type="xs:int" />
+              <xs:element name="CarClassificationID" msprop:Generator_ColumnPropNameInRow="CarClassificationID" msprop:Generator_ColumnPropNameInTable="CarClassificationIDColumn" msprop:Generator_ColumnVarNameInTable="columnCarClassificationID" msprop:Generator_UserColumnName="CarClassificationID" type="xs:int" />
+              <xs:element name="Expr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_UserColumnName="Expr1" type="xs:boolean" />
+              <xs:element name="Expr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_UserColumnName="Expr2" type="xs:boolean" />
+              <xs:element name="RouteID" msprop:Generator_ColumnPropNameInRow="RouteID" msprop:Generator_ColumnPropNameInTable="RouteIDColumn" msprop:Generator_ColumnVarNameInTable="columnRouteID" msprop:Generator_UserColumnName="RouteID" type="xs:int" />
+              <xs:element name="PriceID" msprop:Generator_ColumnPropNameInRow="PriceID" msprop:Generator_ColumnPropNameInTable="PriceIDColumn" msprop:Generator_ColumnVarNameInTable="columnPriceID" msprop:Generator_UserColumnName="PriceID" type="xs:int" />
+              <xs:element name="Expr3" msprop:Generator_ColumnPropNameInRow="Expr3" msprop:Generator_ColumnPropNameInTable="Expr3Column" msprop:Generator_ColumnVarNameInTable="columnExpr3" msprop:Generator_UserColumnName="Expr3" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CarsEvaluation" />
+      <xs:field xpath="mstns:CarID" />
+      <xs:field xpath="mstns:CarClassificationID" />
+      <xs:field xpath="mstns:RouteID" />
+      <xs:field xpath="mstns:TripID" />
+    </xs:unique>
+    <xs:unique name="DriversEvaluation_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DriversEvaluation" />
+      <xs:field xpath="mstns:RouteID" />
+      <xs:field xpath="mstns:DriverID" />
+      <xs:field xpath="mstns:TripID" />
+    </xs:unique>
+    <xs:unique name="TripDetails_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TripDetails" />
+      <xs:field xpath="mstns:TripID" />
+      <xs:field xpath="mstns:CarClassificationID" />
+      <xs:field xpath="mstns:RouteID" />
+      <xs:field xpath="mstns:PriceID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

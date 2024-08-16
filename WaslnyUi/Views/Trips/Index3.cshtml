@@ -1,0 +1,132 @@
+﻿@model IEnumerable<WaslnyLib.Entity.Trip>
+
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../Front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trip<i class="ion-ios-arrow-forward"></i></a></span> <span>Completed <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Trip</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<p>
+    @Html.ActionLink("Create New", "Create")&nbsp;&nbsp;
+    @Html.ActionLink("Up Coming", "Index")&nbsp;&nbsp;
+    @Html.ActionLink("Pending", "Index2")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <p style="margin-right: 20px;">Booking DateTime</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Predicted Travel DateTime</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Real Travel DateTime</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Arrival DateTime</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Start Kilometers</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">End Kilometers</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Passengers</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Trip Status</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Trip Driver Rating</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Trip Car Rating</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Trip Comments</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Is Deleted</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Car Plate Number</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Customer Phone</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Driver Phone</p>
+        </th>
+        <th>
+            <p style="margin-right: 20px;">Route To</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripBookingDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripRealTravelDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripPredictedTravelDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripArrivalDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripStartKM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripEndKM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripPassengers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripDriverRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripCarRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripComments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.CarPN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerFName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Driver.DriverPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Route.RouteTo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TripID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TripID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TripID })
+            </td>
+        </tr>
+    }
+
+</table>

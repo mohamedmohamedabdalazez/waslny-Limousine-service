@@ -1,0 +1,1533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WaslnyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="ActionName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActionType">
+          <Key>
+            <PropertyRef Name="ActionTypeID" />
+          </Key>
+          <Property Name="ActionTypeID" Type="int" Nullable="false" />
+          <Property Name="ActionTypeName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AuditTrial">
+          <Key>
+            <PropertyRef Name="AuditTrialID" />
+          </Key>
+          <Property Name="AuditTrialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionTypeID" Type="int" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="IPAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TransactionTime" Type="datetime" Nullable="false" />
+          <Property Name="EntityID" Type="int" Nullable="false" />
+          <Property Name="EntityRecord" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarColor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarBrand" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarModel" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarVersion" Type="int" Nullable="false" />
+          <Property Name="CarType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarCapacity" Type="int" Nullable="false" />
+          <Property Name="CarPN" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CarLED" Type="date" Nullable="false" />
+          <Property Name="CarRented" Type="bit" Nullable="false" />
+          <Property Name="CarKMDashboard" Type="int" Nullable="false" />
+          <Property Name="CarPhoto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarIsAvailable" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarClassification">
+          <Key>
+            <PropertyRef Name="CarClassificationID" />
+          </Key>
+          <Property Name="CarClassificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="CarClassificationQuality" Type="bit" Nullable="false" />
+          <Property Name="CarClassificationType" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarMaintenance">
+          <Key>
+            <PropertyRef Name="CarMaintenanceID" />
+          </Key>
+          <Property Name="CarMaintenanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="CarMaintenanceDate" Type="date" Nullable="false" />
+          <Property Name="CarMaintenanceDetails" Type="text" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerFName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerLName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerGender" Type="bit" Nullable="false" />
+          <Property Name="CustomerAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerPhone" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CustomerCity" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CustomerDOB" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverFName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverLName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverPhone" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DriverSSN" Type="bigint" Nullable="false" />
+          <Property Name="DriverSalary" Type="real" Nullable="false" />
+          <Property Name="DriverDOB" Type="date" Nullable="false" />
+          <Property Name="DriverAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverPhoto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverCity" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverLED" Type="date" Nullable="false" />
+          <Property Name="DriverLastTripDT" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MasterEntity">
+          <Key>
+            <PropertyRef Name="EntityID" />
+          </Key>
+          <Property Name="EntityID" Type="int" Nullable="false" />
+          <Property Name="EntityName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="PriceID" />
+          </Key>
+          <Property Name="PriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="CarClassificationID" Type="int" Nullable="false" />
+          <Property Name="PriceMoney" Type="real" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="RouteID" />
+          </Key>
+          <Property Name="RouteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RouteTo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RouteFrom" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trip">
+          <Key>
+            <PropertyRef Name="TripID" />
+          </Key>
+          <Property Name="TripID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TripBookingDT" Type="datetime" Nullable="false" />
+          <Property Name="TripRealTravelDT" Type="datetime" />
+          <Property Name="TripPredictedTravelDT" Type="datetime" Nullable="false" />
+          <Property Name="TripArrivalDT" Type="datetime" />
+          <Property Name="TripStartKM" Type="int" />
+          <Property Name="TripEndKM" Type="int" />
+          <Property Name="TripPassengers" Type="int" Nullable="false" />
+          <Property Name="TripStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TripDriverRating" Type="int" />
+          <Property Name="TripCarRating" Type="int" />
+          <Property Name="TripComments" Type="nvarchar(max)" />
+          <Property Name="DriverID" Type="int" Nullable="false" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Waslny.dbo.AuditDetailsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AuditDetailsView">
+          <Key>
+            <PropertyRef Name="AuditTrialID" />
+            <PropertyRef Name="EntityID" />
+            <PropertyRef Name="EntityName" />
+            <PropertyRef Name="ActionTypeID" />
+            <PropertyRef Name="ActionTypeName" />
+            <PropertyRef Name="ActionID" />
+            <PropertyRef Name="ActionName" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="IPAddress" />
+            <PropertyRef Name="TransactionTime" />
+            <PropertyRef Name="EntityRecord" />
+          </Key>
+          <Property Name="AuditTrialID" Type="int" Nullable="false" />
+          <Property Name="EntityID" Type="int" Nullable="false" />
+          <Property Name="EntityName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ActionTypeID" Type="int" Nullable="false" />
+          <Property Name="ActionTypeName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="ActionName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IPAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TransactionTime" Type="datetime" Nullable="false" />
+          <Property Name="EntityRecord" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Waslny.dbo.CarsEvaluation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CarsEvaluation">
+          <Key>
+            <PropertyRef Name="CarBrand" />
+            <PropertyRef Name="CarModel" />
+            <PropertyRef Name="CarVersion" />
+            <PropertyRef Name="CarPN" />
+            <PropertyRef Name="CarClassificationQuality" />
+            <PropertyRef Name="CarClassificationType" />
+            <PropertyRef Name="RouteTo" />
+            <PropertyRef Name="TripPredictedTravelDT" />
+            <PropertyRef Name="CarType" />
+            <PropertyRef Name="CarCapacity" />
+            <PropertyRef Name="CarColor" />
+            <PropertyRef Name="CarID" />
+            <PropertyRef Name="CarLED" />
+            <PropertyRef Name="CarRented" />
+            <PropertyRef Name="CarKMDashboard" />
+            <PropertyRef Name="CarPhoto" />
+            <PropertyRef Name="CarIsAvailable" />
+            <PropertyRef Name="IsDeleted" />
+            <PropertyRef Name="CarClassificationID" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="RouteID" />
+            <PropertyRef Name="TripID" />
+            <PropertyRef Name="TripBookingDT" />
+            <PropertyRef Name="TripPassengers" />
+            <PropertyRef Name="TripStatus" />
+            <PropertyRef Name="Expr3" />
+          </Key>
+          <Property Name="CarBrand" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarModel" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarVersion" Type="int" Nullable="false" />
+          <Property Name="CarPN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarClassificationQuality" Type="bit" Nullable="false" />
+          <Property Name="CarClassificationType" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="RouteTo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TripPredictedTravelDT" Type="datetime" Nullable="false" />
+          <Property Name="TripCarRating" Type="int" />
+          <Property Name="TripComments" Type="nvarchar(max)" />
+          <Property Name="CarType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarCapacity" Type="int" Nullable="false" />
+          <Property Name="CarColor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="CarLED" Type="date" Nullable="false" />
+          <Property Name="CarRented" Type="bit" Nullable="false" />
+          <Property Name="CarKMDashboard" Type="int" Nullable="false" />
+          <Property Name="CarPhoto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CarIsAvailable" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="CarClassificationID" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="bit" Nullable="false" />
+          <Property Name="Expr2" Type="bit" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="TripID" Type="int" Nullable="false" />
+          <Property Name="TripBookingDT" Type="datetime" Nullable="false" />
+          <Property Name="TripRealTravelDT" Type="datetime" />
+          <Property Name="TripArrivalDT" Type="datetime" />
+          <Property Name="TripStartKM" Type="int" />
+          <Property Name="TripEndKM" Type="int" />
+          <Property Name="TripPassengers" Type="int" Nullable="false" />
+          <Property Name="TripStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TripDriverRating" Type="int" />
+          <Property Name="Expr3" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Waslny.dbo.DriversEvaluation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DriversEvaluation">
+          <Key>
+            <PropertyRef Name="DriverFName" />
+            <PropertyRef Name="DriverLName" />
+            <PropertyRef Name="DriverPhone" />
+            <PropertyRef Name="DriverLED" />
+            <PropertyRef Name="RouteTo" />
+            <PropertyRef Name="TripPredictedTravelDT" />
+            <PropertyRef Name="DriverSSN" />
+            <PropertyRef Name="DriverSalary" />
+            <PropertyRef Name="DriverDOB" />
+            <PropertyRef Name="DriverAddress" />
+            <PropertyRef Name="DriverPhoto" />
+            <PropertyRef Name="DriverCity" />
+            <PropertyRef Name="IsDeleted" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="RouteID" />
+            <PropertyRef Name="DriverID" />
+            <PropertyRef Name="TripID" />
+            <PropertyRef Name="TripBookingDT" />
+            <PropertyRef Name="TripPassengers" />
+            <PropertyRef Name="TripStatus" />
+            <PropertyRef Name="Expr2" />
+          </Key>
+          <Property Name="DriverFName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverLName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverPhone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverLED" Type="date" Nullable="false" />
+          <Property Name="RouteTo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TripPredictedTravelDT" Type="datetime" Nullable="false" />
+          <Property Name="TripDriverRating" Type="int" />
+          <Property Name="TripComments" Type="nvarchar(max)" />
+          <Property Name="DriverSSN" Type="bigint" Nullable="false" />
+          <Property Name="DriverSalary" Type="real" Nullable="false" />
+          <Property Name="DriverDOB" Type="date" Nullable="false" />
+          <Property Name="DriverAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverPhoto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverCity" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DriverLastTripDT" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Expr1" Type="bit" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="DriverID" Type="int" Nullable="false" />
+          <Property Name="TripID" Type="int" Nullable="false" />
+          <Property Name="TripBookingDT" Type="datetime" Nullable="false" />
+          <Property Name="TripRealTravelDT" Type="datetime" />
+          <Property Name="TripArrivalDT" Type="datetime" />
+          <Property Name="TripStartKM" Type="int" />
+          <Property Name="TripEndKM" Type="int" />
+          <Property Name="TripPassengers" Type="int" Nullable="false" />
+          <Property Name="TripStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TripCarRating" Type="int" />
+          <Property Name="Expr2" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Waslny.dbo.TripDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TripDetails">
+          <Key>
+            <PropertyRef Name="TripPredictedTravelDT" />
+            <PropertyRef Name="TripBookingDT" />
+            <PropertyRef Name="TripStatus" />
+            <PropertyRef Name="RouteTo" />
+            <PropertyRef Name="PriceMoney" />
+            <PropertyRef Name="CarClassificationQuality" />
+            <PropertyRef Name="CarClassificationType" />
+            <PropertyRef Name="TripPassengers" />
+            <PropertyRef Name="IsDeleted" />
+            <PropertyRef Name="TripID" />
+            <PropertyRef Name="CarClassificationID" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="RouteID" />
+            <PropertyRef Name="PriceID" />
+            <PropertyRef Name="Expr3" />
+          </Key>
+          <Property Name="TripPredictedTravelDT" Type="datetime" Nullable="false" />
+          <Property Name="TripStartKM" Type="int" />
+          <Property Name="TripEndKM" Type="int" />
+          <Property Name="TripBookingDT" Type="datetime" Nullable="false" />
+          <Property Name="TripStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TripRealTravelDT" Type="datetime" />
+          <Property Name="TripArrivalDT" Type="datetime" />
+          <Property Name="RouteTo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PriceMoney" Type="real" Nullable="false" />
+          <Property Name="CarClassificationQuality" Type="bit" Nullable="false" />
+          <Property Name="CarClassificationType" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="TripPassengers" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="TripComments" Type="nvarchar(max)" />
+          <Property Name="TripCarRating" Type="int" />
+          <Property Name="TripDriverRating" Type="int" />
+          <Property Name="TripID" Type="int" Nullable="false" />
+          <Property Name="CarClassificationID" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="bit" Nullable="false" />
+          <Property Name="Expr2" Type="bit" Nullable="false" />
+          <Property Name="RouteID" Type="int" Nullable="false" />
+          <Property Name="PriceID" Type="int" Nullable="false" />
+          <Property Name="Expr3" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AuditTrial_Action">
+          <End Role="Action" Type="Self.Action" Multiplicity="1" />
+          <End Role="AuditTrial" Type="Self.AuditTrial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ActionID" />
+            </Principal>
+            <Dependent Role="AuditTrial">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuditTrial_ActionType">
+          <End Role="ActionType" Type="Self.ActionType" Multiplicity="1" />
+          <End Role="AuditTrial" Type="Self.AuditTrial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionType">
+              <PropertyRef Name="ActionTypeID" />
+            </Principal>
+            <Dependent Role="AuditTrial">
+              <PropertyRef Name="ActionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuditTrial_MasterEntity">
+          <End Role="MasterEntity" Type="Self.MasterEntity" Multiplicity="1" />
+          <End Role="AuditTrial" Type="Self.AuditTrial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterEntity">
+              <PropertyRef Name="EntityID" />
+            </Principal>
+            <Dependent Role="AuditTrial">
+              <PropertyRef Name="EntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarClassification_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="CarClassification" Type="Self.CarClassification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="CarClassification">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarMaintenance_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="CarMaintenance" Type="Self.CarMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="CarMaintenance">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Price_CarClassification">
+          <End Role="CarClassification" Type="Self.CarClassification" Multiplicity="1" />
+          <End Role="Price" Type="Self.Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClassification">
+              <PropertyRef Name="CarClassificationID" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="CarClassificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Price_Route">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="Price" Type="Self.Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="RouteID" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Trip">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Trip">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="DriverID" />
+            </Principal>
+            <Dependent Role="Trip">
+              <PropertyRef Name="DriverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Route">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="RouteID" />
+            </Principal>
+            <Dependent Role="Trip">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WaslnyModelStoreContainer">
+          <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActionType" EntityType="Self.ActionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuditTrial" EntityType="Self.AuditTrial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarClassification" EntityType="Self.CarClassification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarMaintenance" EntityType="Self.CarMaintenance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasterEntity" EntityType="Self.MasterEntity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Price" EntityType="Self.Price" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Route" EntityType="Self.Route" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trip" EntityType="Self.Trip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuditDetailsView" EntityType="Self.AuditDetailsView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AuditDetailsView].[AuditTrialID] AS [AuditTrialID], 
+    [AuditDetailsView].[EntityID] AS [EntityID], 
+    [AuditDetailsView].[EntityName] AS [EntityName], 
+    [AuditDetailsView].[ActionTypeID] AS [ActionTypeID], 
+    [AuditDetailsView].[ActionTypeName] AS [ActionTypeName], 
+    [AuditDetailsView].[ActionID] AS [ActionID], 
+    [AuditDetailsView].[ActionName] AS [ActionName], 
+    [AuditDetailsView].[UserID] AS [UserID], 
+    [AuditDetailsView].[UserName] AS [UserName], 
+    [AuditDetailsView].[IPAddress] AS [IPAddress], 
+    [AuditDetailsView].[TransactionTime] AS [TransactionTime], 
+    [AuditDetailsView].[EntityRecord] AS [EntityRecord]
+    FROM [dbo].[AuditDetailsView] AS [AuditDetailsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CarsEvaluation" EntityType="Self.CarsEvaluation" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CarsEvaluation].[CarBrand] AS [CarBrand], 
+    [CarsEvaluation].[CarModel] AS [CarModel], 
+    [CarsEvaluation].[CarVersion] AS [CarVersion], 
+    [CarsEvaluation].[CarPN] AS [CarPN], 
+    [CarsEvaluation].[CarClassificationQuality] AS [CarClassificationQuality], 
+    [CarsEvaluation].[CarClassificationType] AS [CarClassificationType], 
+    [CarsEvaluation].[RouteTo] AS [RouteTo], 
+    [CarsEvaluation].[TripPredictedTravelDT] AS [TripPredictedTravelDT], 
+    [CarsEvaluation].[TripCarRating] AS [TripCarRating], 
+    [CarsEvaluation].[TripComments] AS [TripComments], 
+    [CarsEvaluation].[CarType] AS [CarType], 
+    [CarsEvaluation].[CarCapacity] AS [CarCapacity], 
+    [CarsEvaluation].[CarColor] AS [CarColor], 
+    [CarsEvaluation].[CarID] AS [CarID], 
+    [CarsEvaluation].[CarLED] AS [CarLED], 
+    [CarsEvaluation].[CarRented] AS [CarRented], 
+    [CarsEvaluation].[CarKMDashboard] AS [CarKMDashboard], 
+    [CarsEvaluation].[CarPhoto] AS [CarPhoto], 
+    [CarsEvaluation].[CarIsAvailable] AS [CarIsAvailable], 
+    [CarsEvaluation].[IsDeleted] AS [IsDeleted], 
+    [CarsEvaluation].[CarClassificationID] AS [CarClassificationID], 
+    [CarsEvaluation].[Expr1] AS [Expr1], 
+    [CarsEvaluation].[Expr2] AS [Expr2], 
+    [CarsEvaluation].[RouteID] AS [RouteID], 
+    [CarsEvaluation].[TripID] AS [TripID], 
+    [CarsEvaluation].[TripBookingDT] AS [TripBookingDT], 
+    [CarsEvaluation].[TripRealTravelDT] AS [TripRealTravelDT], 
+    [CarsEvaluation].[TripArrivalDT] AS [TripArrivalDT], 
+    [CarsEvaluation].[TripStartKM] AS [TripStartKM], 
+    [CarsEvaluation].[TripEndKM] AS [TripEndKM], 
+    [CarsEvaluation].[TripPassengers] AS [TripPassengers], 
+    [CarsEvaluation].[TripStatus] AS [TripStatus], 
+    [CarsEvaluation].[TripDriverRating] AS [TripDriverRating], 
+    [CarsEvaluation].[Expr3] AS [Expr3]
+    FROM [dbo].[CarsEvaluation] AS [CarsEvaluation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DriversEvaluation" EntityType="Self.DriversEvaluation" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DriversEvaluation].[DriverFName] AS [DriverFName], 
+    [DriversEvaluation].[DriverLName] AS [DriverLName], 
+    [DriversEvaluation].[DriverPhone] AS [DriverPhone], 
+    [DriversEvaluation].[DriverLED] AS [DriverLED], 
+    [DriversEvaluation].[RouteTo] AS [RouteTo], 
+    [DriversEvaluation].[TripPredictedTravelDT] AS [TripPredictedTravelDT], 
+    [DriversEvaluation].[TripDriverRating] AS [TripDriverRating], 
+    [DriversEvaluation].[TripComments] AS [TripComments], 
+    [DriversEvaluation].[DriverSSN] AS [DriverSSN], 
+    [DriversEvaluation].[DriverSalary] AS [DriverSalary], 
+    [DriversEvaluation].[DriverDOB] AS [DriverDOB], 
+    [DriversEvaluation].[DriverAddress] AS [DriverAddress], 
+    [DriversEvaluation].[DriverPhoto] AS [DriverPhoto], 
+    [DriversEvaluation].[DriverCity] AS [DriverCity], 
+    [DriversEvaluation].[DriverLastTripDT] AS [DriverLastTripDT], 
+    [DriversEvaluation].[IsDeleted] AS [IsDeleted], 
+    [DriversEvaluation].[Expr1] AS [Expr1], 
+    [DriversEvaluation].[RouteID] AS [RouteID], 
+    [DriversEvaluation].[DriverID] AS [DriverID], 
+    [DriversEvaluation].[TripID] AS [TripID], 
+    [DriversEvaluation].[TripBookingDT] AS [TripBookingDT], 
+    [DriversEvaluation].[TripRealTravelDT] AS [TripRealTravelDT], 
+    [DriversEvaluation].[TripArrivalDT] AS [TripArrivalDT], 
+    [DriversEvaluation].[TripStartKM] AS [TripStartKM], 
+    [DriversEvaluation].[TripEndKM] AS [TripEndKM], 
+    [DriversEvaluation].[TripPassengers] AS [TripPassengers], 
+    [DriversEvaluation].[TripStatus] AS [TripStatus], 
+    [DriversEvaluation].[TripCarRating] AS [TripCarRating], 
+    [DriversEvaluation].[Expr2] AS [Expr2]
+    FROM [dbo].[DriversEvaluation] AS [DriversEvaluation]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TripDetails" EntityType="Self.TripDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TripDetails].[TripPredictedTravelDT] AS [TripPredictedTravelDT], 
+    [TripDetails].[TripStartKM] AS [TripStartKM], 
+    [TripDetails].[TripEndKM] AS [TripEndKM], 
+    [TripDetails].[TripBookingDT] AS [TripBookingDT], 
+    [TripDetails].[TripStatus] AS [TripStatus], 
+    [TripDetails].[TripRealTravelDT] AS [TripRealTravelDT], 
+    [TripDetails].[TripArrivalDT] AS [TripArrivalDT], 
+    [TripDetails].[RouteTo] AS [RouteTo], 
+    [TripDetails].[PriceMoney] AS [PriceMoney], 
+    [TripDetails].[CarClassificationQuality] AS [CarClassificationQuality], 
+    [TripDetails].[CarClassificationType] AS [CarClassificationType], 
+    [TripDetails].[TripPassengers] AS [TripPassengers], 
+    [TripDetails].[IsDeleted] AS [IsDeleted], 
+    [TripDetails].[TripComments] AS [TripComments], 
+    [TripDetails].[TripCarRating] AS [TripCarRating], 
+    [TripDetails].[TripDriverRating] AS [TripDriverRating], 
+    [TripDetails].[TripID] AS [TripID], 
+    [TripDetails].[CarClassificationID] AS [CarClassificationID], 
+    [TripDetails].[Expr1] AS [Expr1], 
+    [TripDetails].[Expr2] AS [Expr2], 
+    [TripDetails].[RouteID] AS [RouteID], 
+    [TripDetails].[PriceID] AS [PriceID], 
+    [TripDetails].[Expr3] AS [Expr3]
+    FROM [dbo].[TripDetails] AS [TripDetails]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AuditTrial_Action" Association="Self.FK_AuditTrial_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="AuditTrial" EntitySet="AuditTrial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuditTrial_ActionType" Association="Self.FK_AuditTrial_ActionType">
+            <End Role="ActionType" EntitySet="ActionType" />
+            <End Role="AuditTrial" EntitySet="AuditTrial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuditTrial_MasterEntity" Association="Self.FK_AuditTrial_MasterEntity">
+            <End Role="MasterEntity" EntitySet="MasterEntity" />
+            <End Role="AuditTrial" EntitySet="AuditTrial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarClassification_Car" Association="Self.FK_CarClassification_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="CarClassification" EntitySet="CarClassification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarMaintenance_Car" Association="Self.FK_CarMaintenance_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="CarMaintenance" EntitySet="CarMaintenance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Price_CarClassification" Association="Self.FK_Price_CarClassification">
+            <End Role="CarClassification" EntitySet="CarClassification" />
+            <End Role="Price" EntitySet="Price" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Price_Route" Association="Self.FK_Price_Route">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="Price" EntitySet="Price" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Car" Association="Self.FK_Trip_Car">
+            <End Role="Car" EntitySet="Car" />
+            <End Role="Trip" EntitySet="Trip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Customer" Association="Self.FK_Trip_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Trip" EntitySet="Trip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Driver" Association="Self.FK_Trip_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="Trip" EntitySet="Trip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Route" Association="Self.FK_Trip_Route">
+            <End Role="Route" EntitySet="Route" />
+            <End Role="Trip" EntitySet="Trip" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WaslnyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ActionID" />
+          </Key>
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="ActionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AuditTrials" Relationship="Self.FK_AuditTrial_Action" FromRole="Action" ToRole="AuditTrial" />
+        </EntityType>
+        <EntityType Name="ActionType">
+          <Key>
+            <PropertyRef Name="ActionTypeID" />
+          </Key>
+          <Property Name="ActionTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ActionTypeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AuditTrials" Relationship="Self.FK_AuditTrial_ActionType" FromRole="ActionType" ToRole="AuditTrial" />
+        </EntityType>
+        <EntityType Name="AuditTrial">
+          <Key>
+            <PropertyRef Name="AuditTrialID" />
+          </Key>
+          <Property Name="AuditTrialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransactionTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EntityID" Type="Int32" Nullable="false" />
+          <Property Name="EntityRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Action" Relationship="Self.FK_AuditTrial_Action" FromRole="AuditTrial" ToRole="Action" />
+          <NavigationProperty Name="ActionType" Relationship="Self.FK_AuditTrial_ActionType" FromRole="AuditTrial" ToRole="ActionType" />
+          <NavigationProperty Name="MasterEntity" Relationship="Self.FK_AuditTrial_MasterEntity" FromRole="AuditTrial" ToRole="MasterEntity" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarBrand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarModel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarVersion" Type="Int32" Nullable="false" />
+          <Property Name="CarType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarCapacity" Type="Int32" Nullable="false" />
+          <Property Name="CarPN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarLED" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CarRented" Type="Boolean" Nullable="false" />
+          <Property Name="CarKMDashboard" Type="Int32" Nullable="false" />
+          <Property Name="CarPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarIsAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CarClassifications" Relationship="Self.FK_CarClassification_Car" FromRole="Car" ToRole="CarClassification" />
+          <NavigationProperty Name="CarMaintenances" Relationship="Self.FK_CarMaintenance_Car" FromRole="Car" ToRole="CarMaintenance" />
+          <NavigationProperty Name="Trips" Relationship="Self.FK_Trip_Car" FromRole="Car" ToRole="Trip" />
+        </EntityType>
+        <EntityType Name="CarClassification">
+          <Key>
+            <PropertyRef Name="CarClassificationID" />
+          </Key>
+          <Property Name="CarClassificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="CarClassificationQuality" Type="Boolean" Nullable="false" />
+          <Property Name="CarClassificationType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_CarClassification_Car" FromRole="CarClassification" ToRole="Car" />
+          <NavigationProperty Name="Prices" Relationship="Self.FK_Price_CarClassification" FromRole="CarClassification" ToRole="Price" />
+        </EntityType>
+        <EntityType Name="CarMaintenance">
+          <Key>
+            <PropertyRef Name="CarMaintenanceID" />
+          </Key>
+          <Property Name="CarMaintenanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="CarMaintenanceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CarMaintenanceDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_CarMaintenance_Car" FromRole="CarMaintenance" ToRole="Car" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerFName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerLName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerGender" Type="Boolean" Nullable="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="CustomerDOB" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Trips" Relationship="Self.FK_Trip_Customer" FromRole="Customer" ToRole="Trip" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverID" />
+          </Key>
+          <Property Name="DriverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverFName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverLName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverSSN" Type="Int64" Nullable="false" />
+          <Property Name="DriverSalary" Type="Single" Nullable="false" />
+          <Property Name="DriverDOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DriverAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverLED" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DriverLastTripDT" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Trips" Relationship="Self.FK_Trip_Driver" FromRole="Driver" ToRole="Trip" />
+        </EntityType>
+        <EntityType Name="MasterEntity">
+          <Key>
+            <PropertyRef Name="EntityID" />
+          </Key>
+          <Property Name="EntityID" Type="Int32" Nullable="false" />
+          <Property Name="EntityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AuditTrials" Relationship="Self.FK_AuditTrial_MasterEntity" FromRole="MasterEntity" ToRole="AuditTrial" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="PriceID" />
+          </Key>
+          <Property Name="PriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="CarClassificationID" Type="Int32" Nullable="false" />
+          <Property Name="PriceMoney" Type="Single" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CarClassification" Relationship="Self.FK_Price_CarClassification" FromRole="Price" ToRole="CarClassification" />
+          <NavigationProperty Name="Route" Relationship="Self.FK_Price_Route" FromRole="Price" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="RouteID" />
+          </Key>
+          <Property Name="RouteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RouteTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RouteFrom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Prices" Relationship="Self.FK_Price_Route" FromRole="Route" ToRole="Price" />
+          <NavigationProperty Name="Trips" Relationship="Self.FK_Trip_Route" FromRole="Route" ToRole="Trip" />
+        </EntityType>
+        <EntityType Name="Trip">
+          <Key>
+            <PropertyRef Name="TripID" />
+          </Key>
+          <Property Name="TripID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TripBookingDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TripRealTravelDT" Type="DateTime" Precision="3" />
+          <Property Name="TripPredictedTravelDT" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="TripArrivalDT" Type="DateTime" Precision="3" />
+          <Property Name="TripStartKM" Type="Int32" />
+          <Property Name="TripEndKM" Type="Int32" />
+          <Property Name="TripPassengers" Type="Int32" Nullable="false" />
+          <Property Name="TripStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TripDriverRating" Type="Int32" />
+          <Property Name="TripCarRating" Type="Int32" />
+          <Property Name="TripComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverID" Type="Int32" Nullable="false" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Car" Relationship="Self.FK_Trip_Car" FromRole="Trip" ToRole="Car" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Trip_Customer" FromRole="Trip" ToRole="Customer" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Trip_Driver" FromRole="Trip" ToRole="Driver" />
+          <NavigationProperty Name="Route" Relationship="Self.FK_Trip_Route" FromRole="Trip" ToRole="Route" />
+        </EntityType>
+        <Association Name="FK_AuditTrial_Action">
+          <End Role="Action" Type="Self.Action" Multiplicity="1" />
+          <End Role="AuditTrial" Type="Self.AuditTrial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ActionID" />
+            </Principal>
+            <Dependent Role="AuditTrial">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuditTrial_ActionType">
+          <End Role="ActionType" Type="Self.ActionType" Multiplicity="1" />
+          <End Role="AuditTrial" Type="Self.AuditTrial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionType">
+              <PropertyRef Name="ActionTypeID" />
+            </Principal>
+            <Dependent Role="AuditTrial">
+              <PropertyRef Name="ActionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuditTrial_MasterEntity">
+          <End Role="MasterEntity" Type="Self.MasterEntity" Multiplicity="1" />
+          <End Role="AuditTrial" Type="Self.AuditTrial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MasterEntity">
+              <PropertyRef Name="EntityID" />
+            </Principal>
+            <Dependent Role="AuditTrial">
+              <PropertyRef Name="EntityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarClassification_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="CarClassification" Type="Self.CarClassification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="CarClassification">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarMaintenance_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="CarMaintenance" Type="Self.CarMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="CarMaintenance">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Car">
+          <End Role="Car" Type="Self.Car" Multiplicity="1" />
+          <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Car">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Trip">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Price_CarClassification">
+          <End Role="CarClassification" Type="Self.CarClassification" Multiplicity="1" />
+          <End Role="Price" Type="Self.Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarClassification">
+              <PropertyRef Name="CarClassificationID" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="CarClassificationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Trip">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+          <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="DriverID" />
+            </Principal>
+            <Dependent Role="Trip">
+              <PropertyRef Name="DriverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Price_Route">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="Price" Type="Self.Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="RouteID" />
+            </Principal>
+            <Dependent Role="Price">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trip_Route">
+          <End Role="Route" Type="Self.Route" Multiplicity="1" />
+          <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="RouteID" />
+            </Principal>
+            <Dependent Role="Trip">
+              <PropertyRef Name="RouteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WaslnyLibDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actions" EntityType="Self.Action" />
+          <EntitySet Name="ActionTypes" EntityType="Self.ActionType" />
+          <EntitySet Name="AuditTrials" EntityType="Self.AuditTrial" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="CarClassifications" EntityType="Self.CarClassification" />
+          <EntitySet Name="CarMaintenances" EntityType="Self.CarMaintenance" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="MasterEntities" EntityType="Self.MasterEntity" />
+          <EntitySet Name="Prices" EntityType="Self.Price" />
+          <EntitySet Name="Routes" EntityType="Self.Route" />
+          <EntitySet Name="Trips" EntityType="Self.Trip" />
+          <AssociationSet Name="FK_AuditTrial_Action" Association="Self.FK_AuditTrial_Action">
+            <End Role="Action" EntitySet="Actions" />
+            <End Role="AuditTrial" EntitySet="AuditTrials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuditTrial_ActionType" Association="Self.FK_AuditTrial_ActionType">
+            <End Role="ActionType" EntitySet="ActionTypes" />
+            <End Role="AuditTrial" EntitySet="AuditTrials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuditTrial_MasterEntity" Association="Self.FK_AuditTrial_MasterEntity">
+            <End Role="MasterEntity" EntitySet="MasterEntities" />
+            <End Role="AuditTrial" EntitySet="AuditTrials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarClassification_Car" Association="Self.FK_CarClassification_Car">
+            <End Role="Car" EntitySet="Cars" />
+            <End Role="CarClassification" EntitySet="CarClassifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarMaintenance_Car" Association="Self.FK_CarMaintenance_Car">
+            <End Role="Car" EntitySet="Cars" />
+            <End Role="CarMaintenance" EntitySet="CarMaintenances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Car" Association="Self.FK_Trip_Car">
+            <End Role="Car" EntitySet="Cars" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Price_CarClassification" Association="Self.FK_Price_CarClassification">
+            <End Role="CarClassification" EntitySet="CarClassifications" />
+            <End Role="Price" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Customer" Association="Self.FK_Trip_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Driver" Association="Self.FK_Trip_Driver">
+            <End Role="Driver" EntitySet="Drivers" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Price_Route" Association="Self.FK_Price_Route">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="Price" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trip_Route" Association="Self.FK_Trip_Route">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="Trip" EntitySet="Trips" />
+          </AssociationSet>
+          <EntitySet Name="AuditDetailsViews" EntityType="WaslnyModel.AuditDetailsView" />
+          <EntitySet Name="CarsEvaluations" EntityType="WaslnyModel.CarsEvaluation" />
+          <EntitySet Name="DriversEvaluations" EntityType="WaslnyModel.DriversEvaluation" />
+          <EntitySet Name="TripDetails" EntityType="WaslnyModel.TripDetail" />
+        </EntityContainer>
+        <EntityType Name="AuditDetailsView">
+          <Key>
+            <PropertyRef Name="AuditTrialID" />
+            <PropertyRef Name="EntityID" />
+            <PropertyRef Name="EntityName" />
+            <PropertyRef Name="ActionTypeID" />
+            <PropertyRef Name="ActionTypeName" />
+            <PropertyRef Name="ActionID" />
+            <PropertyRef Name="ActionName" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="IPAddress" />
+            <PropertyRef Name="TransactionTime" />
+            <PropertyRef Name="EntityRecord" />
+          </Key>
+          <Property Name="AuditTrialID" Type="Int32" Nullable="false" />
+          <Property Name="EntityID" Type="Int32" Nullable="false" />
+          <Property Name="EntityName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActionTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ActionTypeName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="ActionName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EntityRecord" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CarsEvaluation">
+          <Key>
+            <PropertyRef Name="CarBrand" />
+            <PropertyRef Name="CarModel" />
+            <PropertyRef Name="CarVersion" />
+            <PropertyRef Name="CarPN" />
+            <PropertyRef Name="CarClassificationQuality" />
+            <PropertyRef Name="CarClassificationType" />
+            <PropertyRef Name="RouteTo" />
+            <PropertyRef Name="TripPredictedTravelDT" />
+            <PropertyRef Name="CarType" />
+            <PropertyRef Name="CarCapacity" />
+            <PropertyRef Name="CarColor" />
+            <PropertyRef Name="CarID" />
+            <PropertyRef Name="CarLED" />
+            <PropertyRef Name="CarRented" />
+            <PropertyRef Name="CarKMDashboard" />
+            <PropertyRef Name="CarPhoto" />
+            <PropertyRef Name="CarIsAvailable" />
+            <PropertyRef Name="IsDeleted" />
+            <PropertyRef Name="CarClassificationID" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="RouteID" />
+            <PropertyRef Name="TripID" />
+            <PropertyRef Name="TripBookingDT" />
+            <PropertyRef Name="TripPassengers" />
+            <PropertyRef Name="TripStatus" />
+            <PropertyRef Name="Expr3" />
+          </Key>
+          <Property Name="CarBrand" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CarModel" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CarVersion" Type="Int32" Nullable="false" />
+          <Property Name="CarPN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CarClassificationQuality" Type="Boolean" Nullable="false" />
+          <Property Name="CarClassificationType" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="RouteTo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TripPredictedTravelDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TripCarRating" Type="Int32" />
+          <Property Name="TripComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CarType" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CarCapacity" Type="Int32" Nullable="false" />
+          <Property Name="CarColor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="CarLED" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CarRented" Type="Boolean" Nullable="false" />
+          <Property Name="CarKMDashboard" Type="Int32" Nullable="false" />
+          <Property Name="CarPhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CarIsAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="CarClassificationID" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="Boolean" Nullable="false" />
+          <Property Name="Expr2" Type="Boolean" Nullable="false" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="TripID" Type="Int32" Nullable="false" />
+          <Property Name="TripBookingDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TripRealTravelDT" Type="DateTime" Precision="3" />
+          <Property Name="TripArrivalDT" Type="DateTime" Precision="3" />
+          <Property Name="TripStartKM" Type="Int32" />
+          <Property Name="TripEndKM" Type="Int32" />
+          <Property Name="TripPassengers" Type="Int32" Nullable="false" />
+          <Property Name="TripStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TripDriverRating" Type="Int32" />
+          <Property Name="Expr3" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DriversEvaluation">
+          <Key>
+            <PropertyRef Name="DriverFName" />
+            <PropertyRef Name="DriverLName" />
+            <PropertyRef Name="DriverPhone" />
+            <PropertyRef Name="DriverLED" />
+            <PropertyRef Name="RouteTo" />
+            <PropertyRef Name="TripPredictedTravelDT" />
+            <PropertyRef Name="DriverSSN" />
+            <PropertyRef Name="DriverSalary" />
+            <PropertyRef Name="DriverDOB" />
+            <PropertyRef Name="DriverAddress" />
+            <PropertyRef Name="DriverPhoto" />
+            <PropertyRef Name="DriverCity" />
+            <PropertyRef Name="IsDeleted" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="RouteID" />
+            <PropertyRef Name="DriverID" />
+            <PropertyRef Name="TripID" />
+            <PropertyRef Name="TripBookingDT" />
+            <PropertyRef Name="TripPassengers" />
+            <PropertyRef Name="TripStatus" />
+            <PropertyRef Name="Expr2" />
+          </Key>
+          <Property Name="DriverFName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverLName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverPhone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverLED" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RouteTo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TripPredictedTravelDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TripDriverRating" Type="Int32" />
+          <Property Name="TripComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverSSN" Type="Int64" Nullable="false" />
+          <Property Name="DriverSalary" Type="Single" Nullable="false" />
+          <Property Name="DriverDOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DriverAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverPhoto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverCity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverLastTripDT" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Expr1" Type="Boolean" Nullable="false" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="DriverID" Type="Int32" Nullable="false" />
+          <Property Name="TripID" Type="Int32" Nullable="false" />
+          <Property Name="TripBookingDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TripRealTravelDT" Type="DateTime" Precision="3" />
+          <Property Name="TripArrivalDT" Type="DateTime" Precision="3" />
+          <Property Name="TripStartKM" Type="Int32" />
+          <Property Name="TripEndKM" Type="Int32" />
+          <Property Name="TripPassengers" Type="Int32" Nullable="false" />
+          <Property Name="TripStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TripCarRating" Type="Int32" />
+          <Property Name="Expr2" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TripDetail">
+          <Key>
+            <PropertyRef Name="TripPredictedTravelDT" />
+            <PropertyRef Name="TripBookingDT" />
+            <PropertyRef Name="TripStatus" />
+            <PropertyRef Name="RouteTo" />
+            <PropertyRef Name="PriceMoney" />
+            <PropertyRef Name="CarClassificationQuality" />
+            <PropertyRef Name="CarClassificationType" />
+            <PropertyRef Name="TripPassengers" />
+            <PropertyRef Name="IsDeleted" />
+            <PropertyRef Name="TripID" />
+            <PropertyRef Name="CarClassificationID" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="RouteID" />
+            <PropertyRef Name="PriceID" />
+            <PropertyRef Name="Expr3" />
+          </Key>
+          <Property Name="TripPredictedTravelDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TripStartKM" Type="Int32" />
+          <Property Name="TripEndKM" Type="Int32" />
+          <Property Name="TripBookingDT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TripStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TripRealTravelDT" Type="DateTime" Precision="3" />
+          <Property Name="TripArrivalDT" Type="DateTime" Precision="3" />
+          <Property Name="RouteTo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriceMoney" Type="Single" Nullable="false" />
+          <Property Name="CarClassificationQuality" Type="Boolean" Nullable="false" />
+          <Property Name="CarClassificationType" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TripPassengers" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="TripComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TripCarRating" Type="Int32" />
+          <Property Name="TripDriverRating" Type="Int32" />
+          <Property Name="TripID" Type="Int32" Nullable="false" />
+          <Property Name="CarClassificationID" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="Boolean" Nullable="false" />
+          <Property Name="Expr2" Type="Boolean" Nullable="false" />
+          <Property Name="RouteID" Type="Int32" Nullable="false" />
+          <Property Name="PriceID" Type="Int32" Nullable="false" />
+          <Property Name="Expr3" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WaslnyModelStoreContainer" CdmEntityContainer="WaslnyLibDbContext">
+          <EntitySetMapping Name="Actions">
+            <EntityTypeMapping TypeName="WaslnyModel.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionTypes">
+            <EntityTypeMapping TypeName="WaslnyModel.ActionType">
+              <MappingFragment StoreEntitySet="ActionType">
+                <ScalarProperty Name="ActionTypeID" ColumnName="ActionTypeID" />
+                <ScalarProperty Name="ActionTypeName" ColumnName="ActionTypeName" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuditTrials">
+            <EntityTypeMapping TypeName="WaslnyModel.AuditTrial">
+              <MappingFragment StoreEntitySet="AuditTrial">
+                <ScalarProperty Name="AuditTrialID" ColumnName="AuditTrialID" />
+                <ScalarProperty Name="ActionTypeID" ColumnName="ActionTypeID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+                <ScalarProperty Name="EntityID" ColumnName="EntityID" />
+                <ScalarProperty Name="EntityRecord" ColumnName="EntityRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="WaslnyModel.Car">
+              <MappingFragment StoreEntitySet="Car">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+                <ScalarProperty Name="CarBrand" ColumnName="CarBrand" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+                <ScalarProperty Name="CarVersion" ColumnName="CarVersion" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+                <ScalarProperty Name="CarCapacity" ColumnName="CarCapacity" />
+                <ScalarProperty Name="CarPN" ColumnName="CarPN" />
+                <ScalarProperty Name="CarLED" ColumnName="CarLED" />
+                <ScalarProperty Name="CarRented" ColumnName="CarRented" />
+                <ScalarProperty Name="CarKMDashboard" ColumnName="CarKMDashboard" />
+                <ScalarProperty Name="CarPhoto" ColumnName="CarPhoto" />
+                <ScalarProperty Name="CarIsAvailable" ColumnName="CarIsAvailable" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarClassifications">
+            <EntityTypeMapping TypeName="WaslnyModel.CarClassification">
+              <MappingFragment StoreEntitySet="CarClassification">
+                <ScalarProperty Name="CarClassificationID" ColumnName="CarClassificationID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="CarClassificationQuality" ColumnName="CarClassificationQuality" />
+                <ScalarProperty Name="CarClassificationType" ColumnName="CarClassificationType" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarMaintenances">
+            <EntityTypeMapping TypeName="WaslnyModel.CarMaintenance">
+              <MappingFragment StoreEntitySet="CarMaintenance">
+                <ScalarProperty Name="CarMaintenanceID" ColumnName="CarMaintenanceID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="CarMaintenanceDate" ColumnName="CarMaintenanceDate" />
+                <ScalarProperty Name="CarMaintenanceDetails" ColumnName="CarMaintenanceDetails" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="WaslnyModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerFName" ColumnName="CustomerFName" />
+                <ScalarProperty Name="CustomerLName" ColumnName="CustomerLName" />
+                <ScalarProperty Name="CustomerGender" ColumnName="CustomerGender" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerCity" ColumnName="CustomerCity" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CustomerDOB" ColumnName="CustomerDOB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="WaslnyModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="DriverFName" ColumnName="DriverFName" />
+                <ScalarProperty Name="DriverLName" ColumnName="DriverLName" />
+                <ScalarProperty Name="DriverPhone" ColumnName="DriverPhone" />
+                <ScalarProperty Name="DriverSSN" ColumnName="DriverSSN" />
+                <ScalarProperty Name="DriverSalary" ColumnName="DriverSalary" />
+                <ScalarProperty Name="DriverDOB" ColumnName="DriverDOB" />
+                <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
+                <ScalarProperty Name="DriverPhoto" ColumnName="DriverPhoto" />
+                <ScalarProperty Name="DriverCity" ColumnName="DriverCity" />
+                <ScalarProperty Name="DriverLED" ColumnName="DriverLED" />
+                <ScalarProperty Name="DriverLastTripDT" ColumnName="DriverLastTripDT" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasterEntities">
+            <EntityTypeMapping TypeName="WaslnyModel.MasterEntity">
+              <MappingFragment StoreEntitySet="MasterEntity">
+                <ScalarProperty Name="EntityID" ColumnName="EntityID" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="WaslnyModel.Price">
+              <MappingFragment StoreEntitySet="Price">
+                <ScalarProperty Name="PriceID" ColumnName="PriceID" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="CarClassificationID" ColumnName="CarClassificationID" />
+                <ScalarProperty Name="PriceMoney" ColumnName="PriceMoney" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routes">
+            <EntityTypeMapping TypeName="WaslnyModel.Route">
+              <MappingFragment StoreEntitySet="Route">
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="RouteTo" ColumnName="RouteTo" />
+                <ScalarProperty Name="RouteFrom" ColumnName="RouteFrom" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trips">
+            <EntityTypeMapping TypeName="WaslnyModel.Trip">
+              <MappingFragment StoreEntitySet="Trip">
+                <ScalarProperty Name="TripID" ColumnName="TripID" />
+                <ScalarProperty Name="TripBookingDT" ColumnName="TripBookingDT" />
+                <ScalarProperty Name="TripRealTravelDT" ColumnName="TripRealTravelDT" />
+                <ScalarProperty Name="TripPredictedTravelDT" ColumnName="TripPredictedTravelDT" />
+                <ScalarProperty Name="TripArrivalDT" ColumnName="TripArrivalDT" />
+                <ScalarProperty Name="TripStartKM" ColumnName="TripStartKM" />
+                <ScalarProperty Name="TripEndKM" ColumnName="TripEndKM" />
+                <ScalarProperty Name="TripPassengers" ColumnName="TripPassengers" />
+                <ScalarProperty Name="TripStatus" ColumnName="TripStatus" />
+                <ScalarProperty Name="TripDriverRating" ColumnName="TripDriverRating" />
+                <ScalarProperty Name="TripCarRating" ColumnName="TripCarRating" />
+                <ScalarProperty Name="TripComments" ColumnName="TripComments" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuditDetailsViews">
+            <EntityTypeMapping TypeName="WaslnyModel.AuditDetailsView">
+              <MappingFragment StoreEntitySet="AuditDetailsView">
+                <ScalarProperty Name="EntityRecord" ColumnName="EntityRecord" />
+                <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="ActionTypeName" ColumnName="ActionTypeName" />
+                <ScalarProperty Name="ActionTypeID" ColumnName="ActionTypeID" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+                <ScalarProperty Name="EntityID" ColumnName="EntityID" />
+                <ScalarProperty Name="AuditTrialID" ColumnName="AuditTrialID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarsEvaluations">
+            <EntityTypeMapping TypeName="WaslnyModel.CarsEvaluation">
+              <MappingFragment StoreEntitySet="CarsEvaluation">
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="TripDriverRating" ColumnName="TripDriverRating" />
+                <ScalarProperty Name="TripStatus" ColumnName="TripStatus" />
+                <ScalarProperty Name="TripPassengers" ColumnName="TripPassengers" />
+                <ScalarProperty Name="TripEndKM" ColumnName="TripEndKM" />
+                <ScalarProperty Name="TripStartKM" ColumnName="TripStartKM" />
+                <ScalarProperty Name="TripArrivalDT" ColumnName="TripArrivalDT" />
+                <ScalarProperty Name="TripRealTravelDT" ColumnName="TripRealTravelDT" />
+                <ScalarProperty Name="TripBookingDT" ColumnName="TripBookingDT" />
+                <ScalarProperty Name="TripID" ColumnName="TripID" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="CarClassificationID" ColumnName="CarClassificationID" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CarIsAvailable" ColumnName="CarIsAvailable" />
+                <ScalarProperty Name="CarPhoto" ColumnName="CarPhoto" />
+                <ScalarProperty Name="CarKMDashboard" ColumnName="CarKMDashboard" />
+                <ScalarProperty Name="CarRented" ColumnName="CarRented" />
+                <ScalarProperty Name="CarLED" ColumnName="CarLED" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+                <ScalarProperty Name="CarCapacity" ColumnName="CarCapacity" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+                <ScalarProperty Name="TripComments" ColumnName="TripComments" />
+                <ScalarProperty Name="TripCarRating" ColumnName="TripCarRating" />
+                <ScalarProperty Name="TripPredictedTravelDT" ColumnName="TripPredictedTravelDT" />
+                <ScalarProperty Name="RouteTo" ColumnName="RouteTo" />
+                <ScalarProperty Name="CarClassificationType" ColumnName="CarClassificationType" />
+                <ScalarProperty Name="CarClassificationQuality" ColumnName="CarClassificationQuality" />
+                <ScalarProperty Name="CarPN" ColumnName="CarPN" />
+                <ScalarProperty Name="CarVersion" ColumnName="CarVersion" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+                <ScalarProperty Name="CarBrand" ColumnName="CarBrand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DriversEvaluations">
+            <EntityTypeMapping TypeName="WaslnyModel.DriversEvaluation">
+              <MappingFragment StoreEntitySet="DriversEvaluation">
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="TripCarRating" ColumnName="TripCarRating" />
+                <ScalarProperty Name="TripStatus" ColumnName="TripStatus" />
+                <ScalarProperty Name="TripPassengers" ColumnName="TripPassengers" />
+                <ScalarProperty Name="TripEndKM" ColumnName="TripEndKM" />
+                <ScalarProperty Name="TripStartKM" ColumnName="TripStartKM" />
+                <ScalarProperty Name="TripArrivalDT" ColumnName="TripArrivalDT" />
+                <ScalarProperty Name="TripRealTravelDT" ColumnName="TripRealTravelDT" />
+                <ScalarProperty Name="TripBookingDT" ColumnName="TripBookingDT" />
+                <ScalarProperty Name="TripID" ColumnName="TripID" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DriverLastTripDT" ColumnName="DriverLastTripDT" />
+                <ScalarProperty Name="DriverCity" ColumnName="DriverCity" />
+                <ScalarProperty Name="DriverPhoto" ColumnName="DriverPhoto" />
+                <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
+                <ScalarProperty Name="DriverDOB" ColumnName="DriverDOB" />
+                <ScalarProperty Name="DriverSalary" ColumnName="DriverSalary" />
+                <ScalarProperty Name="DriverSSN" ColumnName="DriverSSN" />
+                <ScalarProperty Name="TripComments" ColumnName="TripComments" />
+                <ScalarProperty Name="TripDriverRating" ColumnName="TripDriverRating" />
+                <ScalarProperty Name="TripPredictedTravelDT" ColumnName="TripPredictedTravelDT" />
+                <ScalarProperty Name="RouteTo" ColumnName="RouteTo" />
+                <ScalarProperty Name="DriverLED" ColumnName="DriverLED" />
+                <ScalarProperty Name="DriverPhone" ColumnName="DriverPhone" />
+                <ScalarProperty Name="DriverLName" ColumnName="DriverLName" />
+                <ScalarProperty Name="DriverFName" ColumnName="DriverFName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TripDetails">
+            <EntityTypeMapping TypeName="WaslnyModel.TripDetail">
+              <MappingFragment StoreEntitySet="TripDetails">
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="PriceID" ColumnName="PriceID" />
+                <ScalarProperty Name="RouteID" ColumnName="RouteID" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="CarClassificationID" ColumnName="CarClassificationID" />
+                <ScalarProperty Name="TripID" ColumnName="TripID" />
+                <ScalarProperty Name="TripDriverRating" ColumnName="TripDriverRating" />
+                <ScalarProperty Name="TripCarRating" ColumnName="TripCarRating" />
+                <ScalarProperty Name="TripComments" ColumnName="TripComments" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="TripPassengers" ColumnName="TripPassengers" />
+                <ScalarProperty Name="CarClassificationType" ColumnName="CarClassificationType" />
+                <ScalarProperty Name="CarClassificationQuality" ColumnName="CarClassificationQuality" />
+                <ScalarProperty Name="PriceMoney" ColumnName="PriceMoney" />
+                <ScalarProperty Name="RouteTo" ColumnName="RouteTo" />
+                <ScalarProperty Name="TripArrivalDT" ColumnName="TripArrivalDT" />
+                <ScalarProperty Name="TripRealTravelDT" ColumnName="TripRealTravelDT" />
+                <ScalarProperty Name="TripStatus" ColumnName="TripStatus" />
+                <ScalarProperty Name="TripBookingDT" ColumnName="TripBookingDT" />
+                <ScalarProperty Name="TripEndKM" ColumnName="TripEndKM" />
+                <ScalarProperty Name="TripStartKM" ColumnName="TripStartKM" />
+                <ScalarProperty Name="TripPredictedTravelDT" ColumnName="TripPredictedTravelDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

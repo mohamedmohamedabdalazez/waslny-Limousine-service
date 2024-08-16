@@ -1,0 +1,113 @@
+﻿@model IEnumerable<WaslnyLib.Entity.Driver>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../Front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Driver<i class="ion-ios-arrow-forward"></i></a></span> <span>Index <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Driver</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    <p style="margin-right: 20px;">First Name</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">Last Name</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">Phone</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">SSN</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">Salary</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">Date Of Birth</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">Address</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">Photo</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">City</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">License End Date</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">Last Trip DateTime</p>
+                </th>
+                <th>
+                    <p style="margin-right: 20px;">Is Deleted</p>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverFName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverLName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverSSN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverSalary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverDOB)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverPhoto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverLED)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DriverLastTripDT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.DriverID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.DriverID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.DriverID })
+                    </td>
+                </tr>
+            }
+
+        </table>
